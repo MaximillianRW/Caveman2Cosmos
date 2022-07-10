@@ -196,6 +196,7 @@
     <ClCompile Include="CvPlotPaging.cpp" />
     <ClCompile Include="CvPython.cpp" />
     <ClCompile Include="CvSettlerAI.cpp" />
+    <ClCompile Include="CvUnitValueCalculator.cpp" />
     <ClCompile Include="CvValueService.cpp" />
     <ClCompile Include="CvWorkerAI.cpp" />
     <ClCompile Include="CvWorkerService.cpp" />
@@ -359,6 +360,8 @@
     <ClInclude Include="CvPlotPaging.h" />
     <ClInclude Include="CvPython.h" />
     <ClInclude Include="CvSettlerAI.h" />
+    <ClInclude Include="CvUnitInfo.h" />
+    <ClInclude Include="CvUnitValueCalculator.h" />
     <ClInclude Include="CvValueService.h" />
     <ClInclude Include="CvWorkerAI.h" />
     <ClInclude Include="CvWorkerService.h" />
