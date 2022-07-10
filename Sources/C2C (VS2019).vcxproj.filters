@@ -678,6 +678,9 @@
     <ClCompile Include="BoolExpr.cpp">
       <Filter>Source Files\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="CvUnitValueCalculator.cpp">
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SCvInternalGlobals.h">
@@ -1186,6 +1189,12 @@
     </ClInclude>
     <ClInclude Include="CvArea.h">
       <Filter>Header Files\Plot\Area</Filter>
+    </ClInclude>
+    <ClInclude Include="CvUnitValueCalculator.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="CvUnitInfo.h">
+      <Filter>Header Files\InfoClasses</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
