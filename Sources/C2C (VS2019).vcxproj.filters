@@ -190,6 +190,18 @@
     <Filter Include="Source Files\Tools\Replay">
       <UniqueIdentifier>{9e963ab4-6290-424d-b42b-8482784f9724}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\AI">
+      <UniqueIdentifier>{bfd4f5f4-616f-4dd9-87e2-93491e7d4c2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AI\Automation">
+      <UniqueIdentifier>{ca8b7cce-7276-4dc2-a58e-1d8a5cb0b17d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AI\Calculations">
+      <UniqueIdentifier>{52608dbe-ca2e-499e-a72a-594800a367b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DataModels">
+      <UniqueIdentifier>{c791d856-f527-4520-b664-94273046e061}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_precompile.cpp">
@@ -680,6 +692,9 @@
     </ClCompile>
     <ClCompile Include="CvUnitValueCalculator.cpp">
       <Filter>Source Files\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="CvMissionControl.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1190,11 +1205,14 @@
     <ClInclude Include="CvArea.h">
       <Filter>Header Files\Plot\Area</Filter>
     </ClInclude>
-    <ClInclude Include="CvUnitValueCalculator.h">
-      <Filter>Header Files\Services</Filter>
-    </ClInclude>
     <ClInclude Include="CvUnitInfo.h">
       <Filter>Header Files\InfoClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="CvMissionControl.h">
+      <Filter>Header Files\AI\Automation</Filter>
+    </ClInclude>
+    <ClInclude Include="CvUnitValueCalculator.h">
+      <Filter>Header Files\AI\Calculations</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
