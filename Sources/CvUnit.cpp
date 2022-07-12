@@ -1745,6 +1745,9 @@ void CvUnit::killUnconditional(bool bDelay, PlayerTypes ePlayer, bool bMessaged)
 				}
 			}
 		}
+		//remove unit from contract broker if its killed
+		owner.getContractBroker().removeUnit(this);
+
 		owner.deleteUnit(getID());
 	}
 }

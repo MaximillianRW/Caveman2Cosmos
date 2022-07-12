@@ -115,6 +115,7 @@ bool CvContractBroker::alreadyListedAsUnemployed(const CvUnit* pUnit) {
 }
 
 //	Unit fulfilled its work and is no longer advertising as available
+// TODO: Evaluate if we need to run a cleanup routine for uncaught dead units?
 void CvContractBroker::removeUnit(const CvUnit* pUnit)
 {
 	int position = -1;
