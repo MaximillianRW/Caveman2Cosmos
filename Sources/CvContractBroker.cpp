@@ -57,6 +57,8 @@ void CvContractBroker::lookingForWork(const CvUnit* pUnit, int iMinPriority)
 {
 	PROFILE_FUNC();
 
+	if (alreadyListedAsUnemployed(pUnit)) return;
+
 	advertisingUnit	unitDetails;
 	unitDetails.eUnitType = pUnit->getUnitType();
 
@@ -98,6 +100,18 @@ void CvContractBroker::lookingForWork(const CvUnit* pUnit, int iMinPriority)
 
 	m_advertisingUnits.push_back(unitDetails);
 
+}
+bool CvContractBroker::alreadyListedAsUnemployed(const CvUnit* pUnit) {
+	bool bAlreadyListed = false;
+	int iUnitId = pUnit->getID();
+
+	for (int iI = 0; iI < (int)m_advertisingUnits.size(); iI++)
+	{
+		if (iUnitId == m_advertisingUnits[iI].iUnitId) {
+			bAlreadyListed = true;
+		}
+	}
+	return bAlreadyListed;
 }
 
 //	Unit fulfilled its work and is no longer advertising as available

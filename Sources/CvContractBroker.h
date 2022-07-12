@@ -14,11 +14,15 @@ class CvUnit;
 //	Capability flags - may be ORd together
 typedef enum	unitCapabilities
 {
-	NO_UNITCAPABILITIES					= 0,
-	DEFENSIVE_UNITCAPABILITIES			= 1 << 0,
-	OFFENSIVE_UNITCAPABILITIES			= 1 << 1,
-	WORKER_UNITCAPABILITIES				= 1 << 2,
-	HEALER_UNITCAPABILITIES				= 1 << 3
+	NO_UNITCAPABILITIES = 0,
+	DEFENSIVE_UNITCAPABILITIES = 1 << 0,
+	OFFENSIVE_UNITCAPABILITIES = 1 << 1,
+	WORKER_UNITCAPABILITIES = 1 << 2,
+	HEALER_UNITCAPABILITIES = 1 << 3,
+	MECHANICAL_HEALING_UNITCAPABILITIES = 1 << 4,
+	POLICING_UNITCAPABILIITES = 1 << 5,
+	EDUCATION_UNITCAPABILITIES = 1 << 6
+
 } unitCapabilities;
 
 
@@ -97,16 +101,20 @@ public:
 	//	Initialize
 	void	init(PlayerTypes eOwner);
 
+	// logging, this writes to the CB.log file
 	void log(CvWString message) const;
 	void log(CvWString message);
 
 	//	Delete all work requests and looking for work records
 	void	reset();
 
+	// clears only tenders from cities, so they are able to create new units.
 	void clearTenders();
 
 	//	Note a unit looking for work
 	void	lookingForWork(const CvUnit* pUnit, int iMinPriority = 0);
+	//  Check if unit is already looking for work
+	bool	alreadyListedAsUnemployed(const CvUnit* pUnit);
 	//	Unit fulfilled its work and is no longer advertising as available
 	void	removeUnit(const CvUnit* pUnit);
 	//	Make a work request
@@ -132,17 +140,19 @@ public:
 	void postProcessUnitsLookingForWork();
 
 private:
-	const workRequest*	findWorkRequest(int iWorkRequestId) const;
-	advertisingUnit*	findBestUnit(const workRequest& request, bool bThisPlotOnly);
-	CvUnit*				findUnit(int iUnitId) const;
+	const workRequest* findWorkRequest(int iWorkRequestId) const;
+	advertisingUnit* findBestUnit(const workRequest& request, bool bThisPlotOnly);
+	CvUnit* findUnit(int iUnitId) const;
 	int					lowerPartiallyFulfilledRequestPriority(int iPreviousPriority, int iPreviousRequestStrength, int iStrengthProvided) const;
 	UnitValueFlags		unitCapabilities2UnitValueFlags(unitCapabilities eCapabilities) const;
 
 	std::vector<workRequest>		m_workRequests;
 	std::vector<advertisingUnit>	m_advertisingUnits;
 	std::vector<cityTender>			m_advertisingTenders;
-	std::map<int,bool>				m_contractedUnits;
+	std::map<int, bool>				m_contractedUnits;
 	int								m_iNextWorkRequestId;
+	int								m_iNextTenderId;
+	int								m_iNextContractId;
 	PlayerTypes						m_eOwner;
 };
 
