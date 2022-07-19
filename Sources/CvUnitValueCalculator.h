@@ -1,20 +1,22 @@
 #pragma once
-#ifndef CV_UNITVALUECALCULATOR
-#define CV_UNITVALUECALCULATOR
+#ifndef Cv_UnitValueCalculator_h__
+#define Cv_UnitValueCalculator_h__
 
 #include "CvEnums.h"
+#include "CvUnit.h"
+#include <map>
 
 
 class CvUnitValueCalculator
 {
 public:
-	int CalculateBaseUnitValue(UnitTypes eUnit);
-	int CalculateCrimeControlValue(UnitTypes eUnit);
-	int CalculateDiseaseControlValue();
-	int CalculateEducationControlValue();
-	int CalculateOffensiveValue();
-	int CalculateDefensiveValue();
-	int CalculateExplorationValue();
+	virtual int CalculateValue(CvUnitInfo* pUnit) const;
+	void ClearCache() {
+		m_unitValueCache.clear();
+	};
+
+private:
+	std::map<int, int> m_unitValueCache;
 };
 
 #endif

@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="NewFilter1">
-      <UniqueIdentifier>{a848c531-9701-45d1-bcfe-60bf32ecc60c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source">
       <UniqueIdentifier>{5d7f5282-1724-4f58-9fdf-ffaba988b6b9}</UniqueIdentifier>
     </Filter>
@@ -259,17 +256,8 @@
     <Filter Include="Source\Base\City\Components">
       <UniqueIdentifier>{70b61629-e789-4bbf-84e4-36fa4fe311bf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\AI">
-      <UniqueIdentifier>{bfd4f5f4-616f-4dd9-87e2-93491e7d4c2e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\AI\Automation">
-      <UniqueIdentifier>{ca8b7cce-7276-4dc2-a58e-1d8a5cb0b17d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\AI\Calculations">
-      <UniqueIdentifier>{52608dbe-ca2e-499e-a72a-594800a367b6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\DataModels">
-      <UniqueIdentifier>{c791d856-f527-4520-b664-94273046e061}</UniqueIdentifier>
+    <Filter Include="Source\Infrastructure\UnitValueCalculator">
+      <UniqueIdentifier>{4f7c5eec-ea67-4ad0-88c0-3ed77e94b379}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -765,11 +753,11 @@
     <ClCompile Include="CyCityOutputHistoryInterface.cpp">
       <Filter>Source\UI\City</Filter>
     </ClCompile>
-    <ClCompile Include="CvUnitValueCalculator.cpp">
-      <Filter>Source Files\Services</Filter>
-    </ClCompile>
     <ClCompile Include="CvMissionControl.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CvUnitValueCalculator.cpp">
+      <Filter>Source\Infrastructure\UnitValueCalculator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1290,13 +1278,10 @@
       <Filter>Source\Base\City\Components</Filter>
     </ClInclude>
     <ClInclude Include="CvUnitInfo.h">
-      <Filter>Header Files\InfoClasses</Filter>
-    </ClInclude>
-    <ClInclude Include="CvMissionControl.h">
-      <Filter>Header Files\AI\Automation</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CvUnitValueCalculator.h">
-      <Filter>Header Files\AI\Calculations</Filter>
+      <Filter>Source\Infrastructure\UnitValueCalculator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
