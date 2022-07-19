@@ -189,7 +189,8 @@
     </BuildLog>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\boost_test\test.cpp" />
+    <ClCompile Include="CityOutputHistory.cpp" />
+    <ClCompile Include="CounterSet.cpp" />
     <ClCompile Include="CvAllocator.cpp" />
     <ClCompile Include="CvAllocator.h" />
     <ClCompile Include="CvBonusInfo.cpp" />
@@ -201,6 +202,7 @@
     <ClCompile Include="CvValueService.cpp" />
     <ClCompile Include="CvWorkerAI.cpp" />
     <ClCompile Include="CvWorkerService.cpp" />
+    <ClCompile Include="CyCityOutputHistoryInterface.cpp" />
     <ClCompile Include="CyPlayerInterface3.cpp" />
     <ClCompile Include="CvImprovementInfo.cpp" />
     <ClCompile Include="logging.cpp" />
@@ -357,8 +359,10 @@
   <ItemGroup>
     <ClInclude Include="algorithm2.h" />
     <ClInclude Include="BetterBTSAI.h" />
+    <ClInclude Include="CityOutputHistory.h" />
     <ClInclude Include="copy_iterator.h" />
-    <ClInclude Include="CvMissionControl.h" />
+    <ClInclude Include="CounterSet.h" />
+    <ClInclude Include="CvCityInvasionComponent.h" />
     <ClInclude Include="CvPlotPaging.h" />
     <ClInclude Include="CvPython.h" />
     <ClInclude Include="CvSettlerAI.h" />
