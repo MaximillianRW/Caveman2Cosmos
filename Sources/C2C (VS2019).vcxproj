@@ -189,11 +189,13 @@
     </BuildLog>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseCultureService.cpp" />
     <ClCompile Include="CityOutputHistory.cpp" />
     <ClCompile Include="CounterSet.cpp" />
     <ClCompile Include="CvAllocator.cpp" />
     <ClCompile Include="CvAllocator.h" />
     <ClCompile Include="CvBonusInfo.cpp" />
+    <ClCompile Include="RealisticCultureService.cpp" />
     <ClCompile Include="CvPlotPaging.cpp" />
     <ClCompile Include="CvPython.cpp" />
     <ClCompile Include="CvSettlerAI.cpp" />
@@ -356,11 +358,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="algorithm2.h" />
+    <ClInclude Include="BaseCultureService.h" />
     <ClInclude Include="BetterBTSAI.h" />
     <ClInclude Include="CityOutputHistory.h" />
     <ClInclude Include="copy_iterator.h" />
     <ClInclude Include="CounterSet.h" />
     <ClInclude Include="CvCityInvasionComponent.h" />
+    <ClInclude Include="RealisticCultureService.h" />
     <ClInclude Include="CvPlotPaging.h" />
     <ClInclude Include="CvPython.h" />
     <ClInclude Include="CvSettlerAI.h" />
