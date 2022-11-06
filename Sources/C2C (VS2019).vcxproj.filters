@@ -271,6 +271,9 @@
     <Filter Include="Source\Base\Plot\Culture">
       <UniqueIdentifier>{49a858f0-47d9-4cdc-ad6b-225d045cdc4f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Base\City\Revolution">
+      <UniqueIdentifier>{b946fb05-f045-4cb6-ba82-5d435cfecfc4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FDataIOStream.cpp">
