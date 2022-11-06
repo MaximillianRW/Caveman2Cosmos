@@ -265,6 +265,12 @@
     <Filter Include="Source\Services\Culture">
       <UniqueIdentifier>{aa7ee291-710a-4fcb-9f76-27f921ade9e8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Base\City\Culture">
+      <UniqueIdentifier>{ff1bb3bc-ee70-4ecb-aebd-e66e210c0442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Base\Plot\Culture">
+      <UniqueIdentifier>{49a858f0-47d9-4cdc-ad6b-225d045cdc4f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FDataIOStream.cpp">
@@ -759,11 +765,11 @@
     <ClCompile Include="CyCityOutputHistoryInterface.cpp">
       <Filter>Source\UI\City</Filter>
     </ClCompile>
-    <ClCompile Include="RealisticCultureService.cpp">
-      <Filter>Source\Services\Culture</Filter>
+    <ClCompile Include="BaseCityCultureService.cpp">
+      <Filter>Source\Base\City\Culture</Filter>
     </ClCompile>
-    <ClCompile Include="BaseCultureService.cpp">
-      <Filter>Source\Services\Culture</Filter>
+    <ClCompile Include="RealisticCityCultureService.cpp">
+      <Filter>Source\Base\City\Culture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1283,11 +1289,11 @@
     <ClInclude Include="CvCityInvasionComponent.h">
       <Filter>Source\Base\City\Components</Filter>
     </ClInclude>
-    <ClInclude Include="BaseCultureService.h">
-      <Filter>Source\Services\Culture</Filter>
+    <ClInclude Include="BaseCityCultureService.h">
+      <Filter>Source\Base\City\Culture</Filter>
     </ClInclude>
-    <ClInclude Include="RealisticCultureService.h">
-      <Filter>Source\Services\Culture</Filter>
+    <ClInclude Include="RealisticCityCultureService.h">
+      <Filter>Source\Base\City\Culture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
