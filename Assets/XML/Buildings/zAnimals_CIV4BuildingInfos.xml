@@ -766,7 +766,7 @@
 			<Civilopedia>TXT_KEY_BUILDING_CENTER_FOR_CEPHALOPOD_STUDIES_PEDIA</Civilopedia>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
-			<iMaxLatitude>70</iMaxLatitude>
+			<iMaxLatitude>11</iMaxLatitude>
 			<PrereqTech>TECH_MARINE_BIOLOGY</PrereqTech>
 			<PrereqAmountBuildings>
 				<PrereqBuilding>
@@ -806,7 +806,7 @@
 			<Civilopedia>TXT_KEY_BUILDING_CENTER_FOR_WHALE_STUDIES_PEDIA</Civilopedia>
 			<Advisor>ADVISOR_SCIENCE</Advisor>
 			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
-			<iMaxLatitude>70</iMaxLatitude>
+			<iMaxLatitude>11</iMaxLatitude>
 			<PrereqTech>TECH_MARINE_BIOLOGY</PrereqTech>
 			<PrereqAmountBuildings>
 				<PrereqBuilding>
@@ -846,7 +846,7 @@
 			<Civilopedia>TXT_KEY_BUILDING_COASTAL_FISH_FARM_PEDIA</Civilopedia>
 			<Advisor>ADVISOR_GROWTH</Advisor>
 			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
-			<iMaxLatitude>60</iMaxLatitude>
+			<iMaxLatitude>9</iMaxLatitude>
 			<PrereqTech>TECH_AQUACULTURE</PrereqTech>
 			<bWater>1</bWater>
 			<ConstructCondition>
@@ -936,7 +936,7 @@
 			<Civilopedia>TXT_KEY_BUILDING_CRAB_NETS_PEDIA</Civilopedia>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
-			<iMaxLatitude>80</iMaxLatitude>
+			<iMaxLatitude>12</iMaxLatitude>
 			<PrereqTech>TECH_AQUACULTURE</PrereqTech>
 			<bWater>1</bWater>
 			<PrereqOrBuildings>
@@ -1353,7 +1353,7 @@
 			<Civilopedia>TXT_KEY_BUILDING_FISH_PENS_PEDIA</Civilopedia>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
-			<iMaxLatitude>60</iMaxLatitude>
+			<iMaxLatitude>9</iMaxLatitude>
 			<bWater>1</bWater>
 			<PrereqTech>TECH_MASONRY</PrereqTech>
 			<ConstructCondition>
@@ -1410,7 +1410,7 @@
 			<Civilopedia>TXT_KEY_BUILDING_FUR_FARM_PEDIA</Civilopedia>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
-			<iMaxLatitude>60</iMaxLatitude>
+			<iMaxLatitude>9</iMaxLatitude>
 			<PrereqTech>TECH_FREE_ARTISTRY</PrereqTech>
 			<PrereqOrBuildings>
 				<BuildingType>BUILDING_FOLKLORE_ARCTIC_FOX</BuildingType>
@@ -1726,7 +1726,7 @@
 			<Civilopedia>TXT_KEY_BUILDING_MARINE_INSTITUTE_PEDIA</Civilopedia>
 			<Advisor>ADVISOR_ECONOMY</Advisor>
 			<ConstructSound>AS2D_BUILD_GRANARY</ConstructSound>
-			<iMaxLatitude>70</iMaxLatitude>
+			<iMaxLatitude>11</iMaxLatitude>
 			<bWater>1</bWater>
 			<PrereqTech>TECH_MARINE_BIOLOGY</PrereqTech>
 			<PrereqInCityBuildings>
@@ -2063,7 +2063,7 @@
 				<MapCategoryType>MAPCATEGORY_EARTH</MapCategoryType>
 			</MapCategoryTypes>
 			<iConquestProb>75</iConquestProb>
-			<iMinLatitude>30</iMinLatitude>
+			<iMinLatitude>5</iMinLatitude>
 			<iHappiness>1</iHappiness>
 			<iAsset>3</iAsset>
 			<YieldChanges>
@@ -2684,7 +2684,7 @@
 			<MapCategoryTypes>
 				<MapCategoryType>MAPCATEGORY_EARTH</MapCategoryType>
 			</MapCategoryTypes>
-			<iMaxLatitude>70</iMaxLatitude>
+			<iMaxLatitude>11</iMaxLatitude>
 			<iAsset>4</iAsset>
 			<iPower>6</iPower>
 			<CommerceChanges>

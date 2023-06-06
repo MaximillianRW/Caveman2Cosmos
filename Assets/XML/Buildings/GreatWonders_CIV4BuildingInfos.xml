@@ -5409,7 +5409,7 @@
 			<iCost>84930</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
-			<iMaxLatitude>30</iMaxLatitude>
+			<iMaxLatitude>5</iMaxLatitude>
 			<iHappiness>4</iHappiness>
 			<iAreaHappiness>4</iAreaHappiness>
 			<iGlobalHappiness>4</iGlobalHappiness>
@@ -10773,7 +10773,7 @@
 			<fVisibilityPriority>2</fVisibilityPriority>
 			<PrereqTech>TECH_TOURISM</PrereqTech>
 			<Bonus>BONUS_FURNITURE</Bonus>
-			<iMinLatitude>55</iMinLatitude>
+			<iMinLatitude>9</iMinLatitude>
 			<PrereqOrTerrain>
 				<PrereqTerrain>
 					<TerrainType>TERRAIN_TAIGA</TerrainType>
@@ -16329,7 +16329,7 @@
 			<iCost>21150</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
-			<iMinLatitude>45</iMinLatitude>
+			<iMinLatitude>7</iMinLatitude>
 			<iHappiness>2</iHappiness>
 			<iAreaHappiness>2</iAreaHappiness>
 			<iAsset>10</iAsset>
@@ -19614,7 +19614,7 @@
 			<iCost>9630</iCost>
 			<iHurryCostModifier>100</iHurryCostModifier>
 			<iConquestProb>100</iConquestProb>
-			<iMinLatitude>50</iMinLatitude>
+			<iMinLatitude>8</iMinLatitude>
 			<iAsset>10</iAsset>
 			<fVisibilityPriority>1</fVisibilityPriority>
 			<MapCategoryTypes>

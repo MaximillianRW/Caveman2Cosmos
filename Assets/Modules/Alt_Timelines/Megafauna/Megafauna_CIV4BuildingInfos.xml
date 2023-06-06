@@ -553,7 +553,7 @@
 			<Bonus>BONUS_DEER</Bonus>
 			<iCost>624</iCost>
 			<iConquestProb>100</iConquestProb>
-			<iMinLatitude>45</iMinLatitude>
+			<iMinLatitude>7</iMinLatitude>
 			<iTradeRoutes>1</iTradeRoutes>
 			<iAsset>4</iAsset>
 			<iPower>2</iPower>
@@ -611,7 +611,7 @@
 			<MapCategoryTypes>
 				<MapCategoryType>MAPCATEGORY_EARTH</MapCategoryType>
 			</MapCategoryTypes>
-			<iMinLatitude>45</iMinLatitude>
+			<iMinLatitude>7</iMinLatitude>
 			<FreeBuilding>BUILDING_EFFECT_HERITAGE_DEER</FreeBuilding>
 			<iCost>139</iCost>
 			<iConquestProb>0</iConquestProb>
@@ -653,7 +653,7 @@
 			</MapCategoryTypes>
 			<iCost>624</iCost>
 			<iConquestProb>100</iConquestProb>
-			<iMaxLatitude>45</iMaxLatitude>
+			<iMaxLatitude>7</iMaxLatitude>
 			<iTradeRoutes>1</iTradeRoutes>
 			<iAsset>4</iAsset>
 			<iPower>2</iPower>
@@ -705,7 +705,7 @@
 			<MapCategoryTypes>
 				<MapCategoryType>MAPCATEGORY_EARTH</MapCategoryType>
 			</MapCategoryTypes>
-			<iMaxLatitude>45</iMaxLatitude>
+			<iMaxLatitude>7</iMaxLatitude>
 			<PrereqTech>TECH_HERITAGE</PrereqTech>
 			<FreeBuilding>BUILDING_EFFECT_HERITAGE_GIRAFFES</FreeBuilding>
 			<iCost>139</iCost>
@@ -785,7 +785,7 @@
 			</MapCategoryTypes>
 			<Bonus>BONUS_MAMMOTH</Bonus>
 			<iCost>624</iCost>
-			<iMinLatitude>40</iMinLatitude>
+			<iMinLatitude>6</iMinLatitude>
 			<iHealth>-1</iHealth>
 			<iHappiness>1</iHappiness>
 			<iAsset>4</iAsset>
@@ -856,7 +856,7 @@
 				<MapCategoryType>MAPCATEGORY_EARTH</MapCategoryType>
 			</MapCategoryTypes>
 			<FreeBuilding>BUILDING_EFFECT_HERITAGE_MAMMOTHS</FreeBuilding>
-			<iMinLatitude>40</iMinLatitude>
+			<iMinLatitude>6</iMinLatitude>
 			<iCost>139</iCost>
 			<iAsset>4</iAsset>
 			<iPower>2</iPower>
@@ -1101,7 +1101,7 @@
 				<MapCategoryType>MAPCATEGORY_EARTH</MapCategoryType>
 			</MapCategoryTypes>
 			<iCost>624</iCost>
-			<iMaxLatitude>45</iMaxLatitude>
+			<iMaxLatitude>7</iMaxLatitude>
 			<iTradeRoutes>1</iTradeRoutes>
 			<iAsset>4</iAsset>
 			<iPower>2</iPower>
@@ -1153,7 +1153,7 @@
 			<MapCategoryTypes>
 				<MapCategoryType>MAPCATEGORY_EARTH</MapCategoryType>
 			</MapCategoryTypes>
-			<iMaxLatitude>45</iMaxLatitude>
+			<iMaxLatitude>7</iMaxLatitude>
 			<FreeBuilding>BUILDING_EFFECT_HERITAGE_ZEBRAS</FreeBuilding>
 			<iCost>139</iCost>
 			<iAsset>4</iAsset>

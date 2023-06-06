@@ -10255,7 +10255,7 @@
 				<BuildingType>BUILDING_HOUSING_COLONY_ARCOLOGY</BuildingType>
 				<BuildingType>BUILDING_LAUNCH_ARCOLOGY</BuildingType>
 			</ReplacementBuildings>
-			<iMinLatitude>50</iMinLatitude>
+			<iMinLatitude>8</iMinLatitude>
 			<PrereqOrTerrain>
 				<PrereqTerrain>
 					<TerrainType>TERRAIN_TAIGA</TerrainType>
@@ -11799,7 +11799,7 @@
 			</MapCategoryTypes>
 			<Description>TXT_KEY_BUILDING_PESTS_CROWS</Description>
 			<Civilopedia>TXT_KEY_BUILDING_PESTS_PEDIA</Civilopedia>
-			<iMaxLatitude>70</iMaxLatitude>
+			<iMaxLatitude>11</iMaxLatitude>
 			<iPrereqPopulation>6</iPrereqPopulation>
 			<PrereqTech>TECH_TRIBALISM</PrereqTech>
 			<ObsoleteTech>TECH_VERTICAL_FARMING</ObsoleteTech>
@@ -12038,7 +12038,7 @@
 			</MapCategoryTypes>
 			<Description>TXT_KEY_BUILDING_PESTS_PIGEONS</Description>
 			<Civilopedia>TXT_KEY_BUILDING_PESTS_PEDIA</Civilopedia>
-			<iMaxLatitude>70</iMaxLatitude>
+			<iMaxLatitude>11</iMaxLatitude>
 			<iPrereqPopulation>7</iPrereqPopulation>
 			<PrereqTech>TECH_CIVIL_ENGINEERING</PrereqTech>
 			<ObsoleteTech>TECH_ENVIRONMENTAL_ECONOMICS</ObsoleteTech>
@@ -12090,7 +12090,7 @@
 			</MapCategoryTypes>
 			<Description>TXT_KEY_BUILDING_PESTS_RATS</Description>
 			<Civilopedia>TXT_KEY_BUILDING_PESTS_PEDIA</Civilopedia>
-			<iMaxLatitude>80</iMaxLatitude>
+			<iMaxLatitude>12</iMaxLatitude>
 			<iPrereqPopulation>4</iPrereqPopulation>
 			<PrereqTech>TECH_SEDENTARY_LIFESTYLE</PrereqTech>
 			<ObsoleteTech>TECH_ENVIRONMENTAL_ECONOMICS</ObsoleteTech>
@@ -12130,7 +12130,7 @@
 			</MapCategoryTypes>
 			<Description>TXT_KEY_BUILDING_PESTS_SEAGULLS</Description>
 			<Civilopedia>TXT_KEY_BUILDING_PESTS_PEDIA</Civilopedia>
-			<iMaxLatitude>80</iMaxLatitude>
+			<iMaxLatitude>12</iMaxLatitude>
 			<iPrereqPopulation>7</iPrereqPopulation>
 			<PrereqTech>TECH_SANITATION</PrereqTech>
 			<bWater>1</bWater>
