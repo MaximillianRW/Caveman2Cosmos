@@ -29,6 +29,7 @@
 #include "CvDLLEngineIFaceBase.h"
 #include "CvDLLInterfaceIFaceBase.h"
 #include "CvDLLUtilityIFaceBase.h"
+#include "CvTraitInfo.h"
 
 // Public Functions...
 
@@ -94,11 +95,15 @@ void CvDLLButtonPopup::OnOkClicked(CvPopup* pPopup, PopupReturn *pPopupReturn, C
 				case 1:
 				{
 					Cy::call(PYCivModule, "gameExitSave");
+					gDLL->getInterfaceIFace()->clearSelectionList();
+					gDLL->getInterfaceIFace()->clearSelectedCities();
 					gDLL->getInterfaceIFace()->exitingToMainMenu();
 					break;
 				}
 				case 2:
 				{
+					gDLL->getInterfaceIFace()->clearSelectionList();
+					gDLL->getInterfaceIFace()->clearSelectedCities();
 					GC.getGame().doControl(CONTROL_RETIRE);
 					break;
 				}
@@ -929,8 +934,7 @@ void CvDLLButtonPopup::OnFocus(CvPopup* pPopup, CvPopupInfo &info)
 // returns false if popup is not launched
 bool CvDLLButtonPopup::launchButtonPopup(CvPopup* pPopup, CvPopupInfo &info)
 {
-	const PlayerTypes eActPlayer = GC.getGame().getActivePlayer();
-	GET_PLAYER(eActPlayer).setTurnHadUIInteraction(true);
+	GET_PLAYER(GC.getGame().getActivePlayer()).setTurnHadUIInteraction(true);
 
 	switch (info.getButtonPopupType())
 	{
@@ -2340,24 +2344,11 @@ bool CvDLLButtonPopup::launchEventPopup(CvPopup* pPopup, CvPopupInfo &info)
 	}
 
 	const CvEventTriggerInfo& kTrigger = GC.getEventTriggerInfo(pTriggeredData->m_eTrigger);
-/************************************************************************************************/
-/* Afforess	                  Start		 05/20/10                                               */
-/*                                                                                              */
-/*                                                                                              */
-/************************************************************************************************/
-// Begin EmperorFool: Events with Images
-	if (GET_PLAYER(GC.getGame().getActivePlayer()).isModderOption(MODDEROPTION_EVENT_IMAGES))
-	{
-		if (kTrigger.getEventArt())
-		{
-			gDLL->getInterfaceIFace()->popupAddDDS(pPopup, kTrigger.getEventArt());
-		}
-	}
-// End EmperorFool: Events with Images
-/************************************************************************************************/
-/* Afforess	                     END                                                            */
-/************************************************************************************************/
 
+	if (kTrigger.getEventArt())
+	{
+		gDLL->getInterfaceIFace()->popupAddDDS(pPopup, kTrigger.getEventArt());
+	}
 
 	gDLL->getInterfaceIFace()->popupSetBodyString(pPopup, pTriggeredData->m_szText);
 

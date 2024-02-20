@@ -332,7 +332,7 @@
 		<German>Gegenspionage</German>
 		<Spanish>Contraespionaje</Spanish>
 		<Russian>Øïèîí ïðîòèâ øïèîíà</Russian>
-		<Italian>Spia contro spia</Italian>
+		<Italian>Tabella completa spionaggio</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_ESPIONAGE_SPY_SUCCESS</Tag>
@@ -444,7 +444,7 @@
 		<English>Anti-War Rallies in %s1, incited by a %s2 spy, have been causing trouble for local officials.</English>
 		<French>Les Pacifistes se rassemblent dans %s1, incités par un espion %s2, et engendrent des troubles que les autorités locales peinent à contrôler.</French>
 		<German>Antikriegskundgebungen in %s1, ausgelöst von einem %s2 Spion, haben der Stadtverwaltung Probleme verursacht.</German>
-		<Italian>Le proteste pacifiste nella cittÀ di %s1, incitate da una spia di %s2, hanno causato problemi alle autorità locali.</Italian>
+		<Italian>Le proteste pacifiste nella città di %s1, incitate da una spia di %s2, hanno causato problemi alle autorità locali.</Italian>
 		<Spanish>Unas protestas pacifistas en %s1, incitadas por un espía %s2, han estado causando problemas a las autoridades locales.</Spanish>
 		<Russian>Àíòèâîåííûå âûñòóïëåíèÿ â %s1, ïîäñòðåêàåìîì øïèîíîì %s2, äîñòàâëÿëè íåïðèÿòíîñòè ìåñòíûì ÷èíîâíèêàì.</Russian>
 	</TEXT>

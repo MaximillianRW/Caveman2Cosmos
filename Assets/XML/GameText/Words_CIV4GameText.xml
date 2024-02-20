@@ -6,29 +6,29 @@
 		<English>Cargo</English>
 		<German>Fracht</German>
 		<Spanish>Carga</Spanish>
-		<Italian>merce</Italian>
+		<Italian>Carico</Italian> <!--infoscreen building list-->
 		<Polish>Ładowność</Polish>
-		<Russian>Òðàíñïîðò</Russian>
+		<Russian>Транспорт</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_CITY</Tag>
 		<English>City</English>
 		<French>Ville</French>
 		<German>Stadt</German>
-		<Italian>in città</Italian><!--Aerial CT trait in the pedia-->
+		<Italian>città</Italian><!--Aerial CT trait in the pedia-->
 		<Spanish>Ciudad</Spanish>
 		<Polish>Miasto</Polish>
-		<Russian>Ãîðîä</Russian>
+		<Russian>Город</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_COST</Tag>
 		<English>Cost</English>
 		<French>Coût</French>
 		<German>Kosten</German>
-		<Italian>costo</Italian>
+		<Italian>Costo</Italian> <!--infoscreen building list-->
 		<Spanish>Coste</Spanish>
 		<Polish>Koszt</Polish>
-		<Russian>Öåíà</Russian>
+		<Russian>Цена</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_CULTURE</Tag>
@@ -37,14 +37,14 @@
 		<Italian>Cultura</Italian>
 		<Spanish>Cultura</Spanish>
 		<Polish>Kultura</Polish>
-		<Russian>Êóëüòóðà</Russian>
+		<Russian>Культура</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_DEFAULT</Tag>
 		<English>Default</English>
 		<French>Standard</French>
 		<German>Standard</German>
-		<Italian>predefinito</Italian>
+		<Italian>Standard</Italian>
 		<Spanish>Predeterminado</Spanish>
 		<Russian>По умолчанию</Russian>
 	</TEXT>
@@ -53,18 +53,19 @@
 		<English>Espionage</English>
 		<French>Espionnage</French>
 		<German>Spionage</German>
-		<Italian>Spionaggio</Italian>
+		<Italian>Spionaggio</Italian> <!--infoscreen building list-->
 		<Spanish>Espionaje</Spanish>
 		<Polish>Szpiegostwo</Polish>
-		<Russian>Øïèîíàæ</Russian>
+		<Russian>Шпионаж</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_EXIT</Tag>
 		<English>Exit</English>
 		<French>Quitter</French>
 		<German>Beenden</German>
-		<Italian>Esci</Italian>
+		<Italian>Esci</Italian> <!-- button on recap civs position every 50 turns, any info screen upper right -->
 		<Spanish>Salir</Spanish>
+		<Russian>Выход</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_FOOD</Tag>
@@ -74,17 +75,17 @@
 		<Italian>Cibo</Italian>
 		<Spanish>Alimento</Spanish>
 		<Polish>Żywność</Polish>
-		<Russian>Ïèùà</Russian>
+		<Russian>Пища</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_GAME</Tag>
 		<English>Game</English>
 		<French>Jeu</French>
 		<German>Spiel</German>
-		<Italian>Gioco</Italian>
+		<Italian>Dettagli partita</Italian>
 		<Spanish>Partida</Spanish>
 		<Polish>Gra</Polish>
-		<Russian>Èãðà</Russian>
+		<Russian>Игра</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_HILL</Tag>
@@ -93,6 +94,7 @@
 		<German>Hügel</German>
 		<Italian>Collina</Italian>
 		<Spanish>Colina</Spanish>
+		<Russian>Холм</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_NAME</Tag>
@@ -101,7 +103,7 @@
 		<Italian>Nome</Italian>
 		<Spanish>Nombre</Spanish>
 		<Polish>Nazwa</Polish>
-		<Russian>Íàçâàíèå</Russian>
+		<Russian>Название</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_PEAK</Tag>
@@ -110,6 +112,7 @@
 		<German>Gipfel</German>
 		<Italian>Picco</Italian>
 		<Spanish>Pico</Spanish>
+		<Russian>Гора</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_PLAYER</Tag>
@@ -119,29 +122,30 @@
 		<Italian>giocatore</Italian>
 		<Spanish>Jugador</Spanish>
 		<Polish>Gracz</Polish>
-		<Russian>Èãðîê</Russian>
+		<Russian>Игрок</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_PLOT</Tag>
 		<English>Plot</English>
 		<French>Case</French>
 		<German>Feld</German>
-		<Italian>casella</Italian>
+		<Italian>sulla propria casella</Italian> <!-- unit Enforcers -->
 		<Spanish>Casilla</Spanish>
 		<Polish>Pole</Polish>
-		<Russian>Ó÷àñòîê</Russian>
+		<Russian>Участок</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_RECOMMENDATIONS</Tag>
 		<English>Recommendations</English>
 		<German>Empfehlungen</German>
 		<Italian>Raccomandazioni</Italian>
+		<Russian>Рекомендации</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_SPOT</Tag>
 		<English>Spot</English>
 		<German>Sicht</German>
-		<Italian>punto</Italian>
+		<Italian>Tipo e forza d'[COLOR_HIGHLIGHT_TEXT]individuazione[COLOR_REVERT]:</Italian> <!-- unit Ambusher with Hide and Seek active -->
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_TEAM</Tag>
@@ -150,7 +154,7 @@
 		<Italian>squadra</Italian>
 		<Spanish>Equipo</Spanish>
 		<Polish>Drużyna</Polish>
-		<Russian>Êîìàíäà</Russian>
+		<Russian>Команда</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_UNIT</Tag>
@@ -160,16 +164,16 @@
 		<Italian>unità</Italian>
 		<Spanish>Unidad</Spanish>
 		<Polish>Jednostka</Polish>
-		<Russian>Îòðÿä</Russian>
+		<Russian>Отряд</Russian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_WORD_WITH</Tag>
 		<English>With</English>
 		<French>Avec</French>
 		<German>durch</German>
-		<Italian>Variazione ulteriore con</Italian>
+		<Italian>[COLOR_HIGHLIGHT_TEXT]Variazione[COLOR_REVERT] con</Italian> <!-- building krakatoa building list hover -->
 		<Spanish>Con</Spanish>
 		<Polish>Z</Polish>
-		<Russian>Ñ</Russian>
+		<Russian>С</Russian>
 	</TEXT>
 </Civ4GameText>

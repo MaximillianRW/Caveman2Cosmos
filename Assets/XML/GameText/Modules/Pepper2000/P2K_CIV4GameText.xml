@@ -26,7 +26,7 @@
 		<English>Build [LINK=IMPROVEMENT_ASTEROID_MINE]Asteroid Mine[\LINK]</English>
 		<French>Construire un [LINK=IMPROVEMENT_ASTEROID_MINE]Mine d'Astéroide[\LINK]</French>
 		<Russian>Ñòðîèòü àñòåð. øàõòó</Russian>
-		<Italian>[LINK=IMPROVEMENT_ASTEROID_MINE]Miniera su un asteroide[\LINK] (costruzione)</Italian>
+		<Italian>[LINK=IMPROVEMENT_ASTEROID_MINE]Miniera su asteroide[\LINK] (costruzione)</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILD_BIOTIC_GALAXY</Tag>
@@ -78,14 +78,14 @@
 		<English>Make [LINK=ROUTE_COMPACT_WORMHOLE]Compact Wormhole[\LINK]</English>
 		<French>Construire un [LINK=ROUTE_COMPACT_WORMHOLE]Compact Trou de Ver[\LINK]</French>
 		<Russian>Ñòðîèòü [LINK=ROUTE_COMPACT_WORMHOLE]Ìàëóþ ÷åðâîòî÷èíó[\LINK]</Russian>
-		<Italian>[LINK=ROUTE_COMPACT_WORMHOLE]Wormhole compatto[\LINK] (costruzione)</Italian>
+		<Italian>[LINK=ROUTE_COMPACT_WORMHOLE]Miniwormhole[\LINK] (costruzione)</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILD_COSMIC_EXPANSION_NODE</Tag>
 		<English>Build [LINK=IMPROVEMENT_COSMIC_EXPANSION_NODE]Cosmic Expansion Node[\LINK]</English>
 		<French>Construire un [LINK=IMPROVEMENT_COSMIC_EXPANSION_NODE]Nœud d'expansion cosmique[\LINK]</French>
 		<Russian>Ñòðîèòü ÓÏÐ</Russian>
-		<Italian>[LINK=IMPROVEMENT_COSMIC_EXPANSION_NODE]Nodo di expansione cosmica[\LINK] (costruzione)</Italian>
+		<Italian>[LINK=IMPROVEMENT_COSMIC_EXPANSION_NODE]Nodo di espansione cosmica[\LINK] (costruzione)</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILD_DISTANT_FUTURE_CITY</Tag>
@@ -127,7 +127,7 @@
 		<English>Make [LINK=ROUTE_HYPERLANE]Hyperlane[\LINK]</English>
 		<French>Construire un [LINK=ROUTE_HYPERLANE]Hyperligne[\LINK]</French>
 		<Russian>Ïðîëîæèòü ãèïåðëàéí</Russian>
-		<Italian>[LINK=ROUTE_HYPERLANE]Hyperstrada[\LINK] (costruzione)</Italian>
+		<Italian>[LINK=ROUTE_HYPERLANE]Iperstrada[\LINK] (costruzione)</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILD_HYPERSPACE_BUNKER</Tag>
@@ -303,14 +303,14 @@
 		<English>Build [LINK=IMPROVEMENT_MERCURY_SOLAR_ARRAY]Mercury Solar Array[\LINK]</English>
 		<French>Construire un [LINK=IMPROVEMENT_MERCURY_SOLAR_ARRAY]Panneau Solaire sur Mercure[\LINK]</French>
 		<Russian>Ñòðîèòü ìåðê. ñîëí. áàò.</Russian>
-		<Italian>[LINK=IMPROVEMENT_MERCURY_SOLAR_ARRAY]Formazione di pannnelli solari di Mercurio[\LINK] (costruzione)</Italian>
+		<Italian>[LINK=IMPROVEMENT_MERCURY_SOLAR_ARRAY]Formazione di pannelli solari di Mercurio[\LINK] (costruzione)</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILD_NEUTRON_STAR_COLONY</Tag>
 		<English>Build [LINK=IMPROVEMENT_NEUTRON_STAR_COLONY]Neutron Star Colony[\LINK]</English>
 		<French>Construire un [LINK=IMPROVEMENT_NEUTRON_STAR_COLONY]Colonie d'Etoile à Neutron[\LINK]</French>
 		<Russian>Ñòðîèòü ÊÍÇ</Russian>
-		<Italian>[LINK=IMPROVEMENT_NEUTRON_STAR_COLONY]Colonia sulla stella a neutroni[\LINK] (costruzione)</Italian>
+		<Italian>[LINK=IMPROVEMENT_NEUTRON_STAR_COLONY]Colonia sulla stella di neutroni[\LINK] (costruzione)</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILD_OBSERVABLE_UNIVERSE_COLONY</Tag>
@@ -354,7 +354,7 @@
 		<Tag>TXT_KEY_BUILD_PLANETARY_MAGLEV</Tag>
 		<English>Make [LINK=ROUTE_PLANETARY_MAGLEV]Planetary Maglev[\LINK]</English>
 		<Russian>Ñòðîèòü [LINK=ROUTE_PLANETARY_MAGLEV]Ìîíîðåëüñ[\LINK]</Russian>
-		<Italian>[LINK=ROUTE_PLANETARY_MAGLEV]Maglev planetario[\LINK] (costruzione)</Italian>
+		<Italian>[LINK=ROUTE_PLANETARY_MAGLEV]Ferrovia a levitazione magnetica planetaria[\LINK] (costruzione)</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILD_SATELLITE_STATION</Tag>
@@ -446,7 +446,7 @@
 		<English>Build [LINK=IMPROVEMENT_SUPERNOVA_MINE]Supernova Mine[\LINK]</English>
 		<French>Construire un [LINK=IMPROVEMENT_SUPERNOVA_MINE]Mine de Supernova[\LINK]</French>
 		<Russian>Ñòðîèòü Çâåçäíûé êàðüåð</Russian>
-		<Italian>[LINK=IMPROVEMENT_SUPERNOVA_MINE]Miniera su una supernova[\LINK] (costruzione)</Italian>
+		<Italian>[LINK=IMPROVEMENT_SUPERNOVA_MINE]Miniera per supernova[\LINK] (costruzione)</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_BUILD_TERRAFORMED_PLANET</Tag>
@@ -764,7 +764,7 @@
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_IMPROVEMENT_INTERGALACTIC_COLONY_PEDIA</Tag>
-		<English>A developed drawf galaxy</English>
+		<English>A developed dwarf galaxy</English>
 		<French>Une galaxie drawf développée</French>
 		<Russian>Ðàçâèòàÿ êàðëèêîâàÿ ãàëàêòèêà</Russian>
 	</TEXT>
@@ -836,7 +836,7 @@
 		<English>Jovian Floating City</English>
 		<French>Ville flottante Jovienne</French>
 		<Russian>Îáëà÷íîé ãîðîä</Russian>
-		<Italian>Città volante gioviana</Italian>
+		<Italian>Città gioviana volante</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_IMPROVEMENT_JOVIAN_FLOATING_CITY_PEDIA</Tag>
@@ -1101,7 +1101,7 @@
 		<English>Solar System Base</English>
 		<French>Base du Système Solaire</French>
 		<Russian>Ìåæïëàíåòíàÿ ñòàíöèÿ</Russian>
-		<Italian>Base militare solare</Italian>
+		<Italian>Base del sistema solare</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_IMPROVEMENT_SOLAR_SYSTEM_BASE_PEDIA</Tag>
@@ -1225,7 +1225,7 @@
 		<English>Supernova Mine</English>
 		<French>Mine de Supernova</French>
 		<Russian>Çâåçäíûé êàðüåð</Russian>
-		<Italian>Miniera su una supernova</Italian>
+		<Italian>Miniera per supernova</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_IMPROVEMENT_SUPERNOVA_MINE_PEDIA</Tag>
@@ -1734,7 +1734,7 @@
 		<English>Explore Transneptunian Space</English>
 		<French>Explorez l'espace transneptunien</French>
 		<Russian>Èññëåä. òðàíñíåï. êîñìîñ</Russian>
-		<Italian>Esplora spazio oltre Nettuno</Italian>
+		<Italian>Esplora spazio transnettuniano</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_MISSION_EXPLORE_TRANSNEPTUNIAN_HELP</Tag>
@@ -1839,7 +1839,7 @@
 		<English>Captured an Asteroid!</English>
 		<French>Asteroïde Capturé !</French>
 		<Russian>Àñòåðîèä çàõâà÷åí!</Russian>
-		<Italian>Hai carrutato un asteroide!</Italian>
+		<Italian>Hai catturato un asteroide!</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_OUTCOME_EXPLORE_ANCIENT_CIVILIZATION</Tag>
@@ -2168,14 +2168,14 @@
 		<English>Do Research Mission</English>
 		<French>Faire une Mission de Recherche</French>
 		<Russian>Íà÷àòü ìèññèþ</Russian>
-		<Italian>Effettua missione di ricerca (esplora lo spazio oltre Nettuno)</Italian>
+		<Italian>Effettua missione di ricerca (esplora lo spazio transnettuniano)</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_OUTCOME_EXPLORE_TRANSNEPTUNIAN_MESSAGE</Tag>
 		<English>Mission Successful!</English>
 		<French>Mission Réussie !</French>
 		<Russian>Ìèññèÿ âûïîëíåíà!</Russian>
-		<Italian>Esplorazione dello spazio oltre Nettuno completata!</Italian>
+		<Italian>Esplorazione dello spazio transnettuniano completata!</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_OUTCOME_LAUNCH_SATELLITE</Tag>
@@ -2238,14 +2238,14 @@
 		<English>Aspatial Route</English>
 		<French>Route Aspatiale</French>
 		<Russian>Âíåïðîñòð. ìàðøðóò</Russian>
-		<Italian>Strada asspaziale</Italian>
+		<Italian>Strada aspaziale</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_ROUTE_COMPACT_WORMHOLE</Tag>
 		<English>Compact Wormhole</English>
 		<French>Compact Trou de Ver</French>
 		<Russian>Ìàëàÿ ÷åðâîòî÷èíà</Russian>
-		<Italian>Wormhole compatto</Italian>
+		<Italian>Miniwormhole</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_ROUTE_HYPERLANE</Tag>
@@ -2278,7 +2278,7 @@
 		<Tag>TXT_KEY_ROUTE_PLANETARY_MAGLEV</Tag>
 		<English>Planetary Maglev</English>
 		<Russian>Планетарный маглев</Russian>
-		<Italian>Maglev planetario</Italian>
+		<Italian>Ferrovia a levitazione magnetica planetaria</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_ROUTE_SOLAR_TRAJECTORY</Tag>
@@ -2325,7 +2325,7 @@
 		<English>Attack Ship</English>
 		<French>Vaisseau d'Attaque</French>
 		<Russian>Ìåæïëàíåòíûé êîðâåò</Russian>
-		<Italian>Nave spaziale d'attacco</Italian>
+		<Italian>Astronave d'attacco</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_ATTACKSHIP_PEDIA</Tag>
@@ -2389,7 +2389,7 @@
 		<English>Chronoforming Ship</English>
 		<French>Vaisseau Chronomorphe</French>
 		<Russian>Õðîíîôîðìåð</Russian>
-		<Italian>Nave spaziale cronomorfa</Italian>
+		<Italian>Astronave cronocinetica</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_CHRONOFORM_SHIP_PEDIA</Tag>
@@ -2409,7 +2409,7 @@
 		<English>[ICON_BULLET]Can build cities in Cislunar Space</English>
 		<French>[ICON_BULLET]Peut construire les Villes de l'espace cislunaire</French>
 		<Russian>[ICON_BULLET][COLOR_YELLOW]Ïîäñêàçêà: [COLOR_REVERT]Ìîæåò ñòðîèòü ãîðîäà è êîëîíèè â îêîëîëóííîì ïðîñòðàíñòâå</Russian>
-		<Italian>[ICON_BULLET]Può fondare città nello spazio cislunare</Italian>
+		<Italian>[ICON_BULLET]L'unità può [COLOR_HIGHLIGHT_TEXT]fondare città[COLOR_REVERT]  nello spazio cislunare</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_CISLUNAR_INFANTRY</Tag>
@@ -2429,7 +2429,7 @@
 		<English>Cislunar Invasion Force</English>
 		<French>Force d'invasion Cislunaire</French>
 		<Russian>Ëóííûé øòóðìîâèê</Russian>
-		<Italian>Forza d'invasione cislunare</Italian>
+		<Italian>Astronave cislunare da invasione</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_CISLUNAR_INVADER_PEDIA</Tag>
@@ -2455,14 +2455,14 @@
 		<English>Cislunar Workship</English>
 		<French>Vaisseau-atelier Cislunaire</French>
 		<Russian>Ëóííûé ðàáî÷èé äðîí</Russian>
-		<Italian>Nave spaziale cislunare da lavoro (ricompensa missione)</Italian>
+		<Italian>Astronave da lavoro cislunare</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_CONSTRUCTION_SHIP</Tag>
 		<English>Construction Ship</English>
 		<French>Vaisseau de construction</French>
 		<Russian>Ñòðîèòåëüíûé ìîäóëü</Russian>
-		<Italian>Nave spaziale cantiere</Italian>
+		<Italian>Astronave costruttrice</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_CONSTRUCTION_SHIP_PEDIA</Tag>
@@ -2486,7 +2486,7 @@
 		<English>Cosmic Work Crew</English>
 		<French>Equipage d'ouvriers Cosmic</French>
 		<Russian>Áðèãàäà àñòðîðàáîòíèêîâ</Russian>
-		<Italian>Squadra cosmica di lavoro</Italian>
+		<Italian>Squadra di lavoro cosmica</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_COSMIC_WORK_CREW_PEDIA</Tag>
@@ -2499,7 +2499,7 @@
 		<English>Cybernetic Work Crew</English>
 		<French>Equipage d'ouvriers Cybernetic</French>
 		<Russian>Áðèãàäà êèáåððàáî÷èõ</Russian>
-		<Italian>Squadra cibernetica di lavoro</Italian>
+		<Italian>Squadra di lavoro cibernetica</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_CYBERNETIC_WORK_CREW_PEDIA</Tag>
@@ -2538,7 +2538,7 @@
 		<English>Energy Swarm</English>
 		<French>Essaim d'énergie</French>
 		<Russian>Ñãóñòîê ýíåðãèè</Russian>
-		<Italian>Sciame energetico</Italian>
+		<Italian>Sciame di energia</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_ENERGY_ENTITY_PEDIA</Tag>
@@ -2603,7 +2603,7 @@
 		<English>Heavy Rocket</English>
 		<French>Fusée Lourde</French>
 		<Russian>Òÿæåëàÿ ðàêåòà</Russian>
-		<Italian>Razzo pesante</Italian>
+		<Italian>Razzo spaziale pesante</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_HEAVY_ROCKET_PEDIA</Tag>
@@ -2627,14 +2627,14 @@
 		<English>Hyperseedship</English>
 		<French>HyperVaisseau-Colonisateur</French>
 		<Russian>Ãèïåðêîðàáëü-ìàòêà</Russian>
-		<Italian>Nave spaziale colonizzatrice</Italian>
+		<Italian>Ipernave colonizzatrice</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_HYPERSHIP_HELP</Tag>
 		<English>[ICON_BULLET]Can build cities in extragalactic space, Distant Cosmos and Hyperspace. Upon settling transforms terrain into Hyperspace</English>
 		<French>[ICON_BULLET]Peut construire les Villes dans l'espace extragalactique, le Cosmos lointain et l'Hyperespace. Lors de la colonisation, le terrain se transforme en hyperespace</French>
 		<Russian>[ICON_BULLET][COLOR_YELLOW]Ïîäñêàçêà: [COLOR_REVERT]Ìîæåò ñòðîèòü ãîðîäà âî âíåãàëàêòè÷åñêîì êîñìîñå, äàëüíåì êîñìîñå è ãèïåðïðîñòðàíñòâå[NEWLINE][ICON_BULLET]Ïîñëå çàñåëåíèÿ ïðåâðàùàåò ìåñòíîñòü â ãèïåðïðîñòðàíñòâî</Russian>
-		<Italian>[ICON_BULLET]Permette la costruzione di città nello spazio extragalattico, nel cosmo distante e nell'iperspazio. Al momento dell'insediamento trasforma il la casella in iperspazio</Italian>
+		<Italian>[ICON_BULLET]L'unità può [COLOR_HIGHLIGHT_TEXT]fondare città[COLOR_REVERT] nello spazio extragalattico, nel cosmo distante e nell'iperspazio.[NEWLINE][ICON_BULLET]Al momento dell'insediamento [COLOR_HIGHLIGHT_TEXT]trasforma[COLOR_REVERT] la casella in [COLOR_HIGHLIGHT_TEXT]iperspazio[COLOR_REVERT]</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_HYPERSPACE_DEFENDER</Tag>
@@ -2667,7 +2667,7 @@
 		<English>Neutronium Battlecruiser</English>
 		<French>Croiseur de Bataille à Neutronium</French>
 		<Russian>Íåéòðîííûé òÿæ. êðåéñåð</Russian>
-		<Italian>Incrociatore spaziale al neutronio</Italian>
+		<Italian>Incrociatore da battaglia al neutronio</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_HYPER_BATTLECRUISER_PEDIA</Tag>
@@ -2718,7 +2718,7 @@
 		<English>Mission Reward (Interstellar Life)</English>
 		<French>Retour de Mission (Interstellar Life)</French>
 		<Russian>Ýôôåêò (Ìåæçâåçäí.)</Russian>
-		<Italian>Vita fuori dal sistema solare (ricompensa missione)</Italian>
+		<Italian>Forma di vita interstellare (ricompensa missione)</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_INTERSTELLAR_LIFE_REWARD_PEDIA</Tag>
@@ -2769,7 +2769,7 @@
 		<English>Interstellar Battlecruiser</English>
 		<French>Croiseur Interstellaire</French>
 		<Russian>Çâåçäíûé êðåéñåð</Russian>
-		<Italian>Incrociatore interstellare</Italian>
+		<Italian>Incrociatore da battaglia interstellare</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_INT_BATTLECRUISER_PEDIA</Tag>
@@ -2853,7 +2853,7 @@
 		<Tag>TXT_KEY_UNIT_LUNARSETTLER_HELP</Tag>
 		<English>[ICON_BULLET]Can build cities on the Moon.</English>
 		<Russian>[ICON_BULLET][COLOR_YELLOW]Ïîäñêàçêà: [COLOR_REVERT]Ìîæåò ñòðîèòü ãîðîäà íà ëóííîé ïîâåðõíîñòè</Russian>
-		<Italian>[ICON_BULLET]Può fondare città sulla luna.</Italian>
+		<Italian>[ICON_BULLET]L'unità può [COLOR_HIGHLIGHT_TEXT]fondare città[COLOR_REVERT] sulla luna</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_LUNAR_BULLDOZER</Tag>
@@ -3031,7 +3031,7 @@
 		<English>[ICON_BULLET]Can build cities in the solar system</English>
 		<French>[ICON_BULLET]Peut construire les Villes dans le système solaire</French>
 		<Russian>[ICON_BULLET][COLOR_YELLOW]Ïîäñêàçêà: [COLOR_REVERT]Ìîæåò îñíîâàòü ãîðîä â ïðåäåëàõ Ñîëíå÷íîé ñèñòåìû</Russian>
-		<Italian>[ICON_BULLET]Può fondare città nel sistema solare</Italian>
+		<Italian>[ICON_BULLET]L'unità può [COLOR_HIGHLIGHT_TEXT]fondare città[COLOR_REVERT] nel sistema solare</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_OORT_CLOUD_REWARD</Tag>
@@ -3071,7 +3071,7 @@
 		<English>[ICON_BULLET]Can build cities on Mars and Venus</English>
 		<French>[ICON_BULLET]Peut construire les Villes sur Mars et Vénus</French>
 		<Russian>[ICON_BULLET][COLOR_YELLOW]Ïîäñêàçêà: [COLOR_REVERT]Ìîæåò îñíîâàòü ãîðîä íà ìàðñèàíñêîé èëè âåíåðèàíñêîé ïîâåðõíîñòè</Russian>
-		<Italian>[ICON_BULLET]Può fondare città su Marte e Venere</Italian>
+		<Italian>[ICON_BULLET]L'unità può [COLOR_HIGHLIGHT_TEXT]fondare città[COLOR_REVERT] su Marte e Venere</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_PLANETARY_INFANTRY</Tag>
@@ -3194,7 +3194,7 @@
 		<English>Mission Reward (Solar System Life)</English>
 		<French>Retour de Mission (Solar System Life)</French>
 		<Russian>Ýôôåêò (Ñîëí. ñèñòåìà)</Russian>
-		<Italian>Vita extraterrestre (ricompensa missione)</Italian>
+		<Italian>Forma di vita del sistema solare (ricompensa missione)</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_SOLAR_SYSTEM_LIFE_REWARD_PEDIA</Tag>
@@ -3207,26 +3207,26 @@
 		<English>Solar Workship</English>
 		<French>Vaisseau-atelier Solaire</French>
 		<Russian>Ñîëíå÷íûé äðîí</Russian>
-		<Italian>Nave spaziale solare da lavoro</Italian>
+		<Italian>Astronave da lavoro solare</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_SOLAR_WORKER_HELP</Tag>
 		<English>[ICON_BULLET]This unit can build route on Orbit terrain enabling trade and resource flow between Earth and space colonies.</English>
-		<Italian>[ICON_BULLET]Questa unità può costruire percorsi sulle caselleo dell'orbita consentendo il commercio e il flusso di risorse tra la Terra e le colonie spaziali.</Italian>
+		<Italian>[ICON_BULLET]L'unità può [COLOR_HIGHLIGHT_TEXT]costruire percorsi[COLOR_REVERT] sulle caselle dell'orbita consentendo il [COLOR_HIGHLIGHT_TEXT]commercio[COLOR_REVERT] e il [COLOR_HIGHLIGHT_TEXT]flusso di risorse[COLOR_REVERT] tra la Terra e le colonie spaziali</Italian> <!-- unit Solar Workship -->
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_SPACEUNIT_HELP</Tag>
 		<English>[ICON_BULLET]While this unit can be built on Earth, it is useful only outside of Earth.[NEWLINE][COLOR_YELLOW]You need to play on custom scenario (Space Map - ...) to use space units![COLOR_REVERT]</English>
 		<French>[ICON_BULLET]Bien que cette unité puisse être construite sur Terre, elle n'est utile qu'en dehors de la Terre.</French>
 		<Russian>[ICON_BULLET][COLOR_YELLOW]Ïîäñêàçêà: [COLOR_REVERT]Õîòÿ ýòî óñòðîéñòâî ìîæåò áûòü ïîñòðîåíî íà Çåìëå, õîòÿ ïîëåçíî òîëüêî çà åå ïðåäåëàìè.</Russian>
-		<Italian>[ICON_BULLET]Sebbene questa unità possa essere costruita sulla Terra, è utile solo al di fuori di essa.[NEWLINE][COLOR_YELLOW]Devi giocare in uno scenario personalizzato (Space map - ...) per poter utilizzare le unità spaziali![COLOR_REVERT]</Italian>
+		<Italian>[ICON_BULLET]L'unità può [COLOR_HIGHLIGHT_TEXT]essere costruita[COLOR_REVERT] sulla Terra ma è [COLOR_HIGHLIGHT_TEXT]utile[COLOR_REVERT] solo al di fuori di essa.[NEWLINE][ICON_BULLET]È necessario utilizzare una [COLOR_HIGHLIGHT_TEXT]mappa dello spazio[COLOR_REVERT] per poter utilizzare le unità spaziali</Italian> <!-- unit Lunar Rover -->
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_SPACE_SHUTTLE</Tag>
 		<English>Space Shuttle</English>
 		<French>Navette Spatiale</French>
 		<Russian>Êîñìè÷åñêèé ÷åëíîê</Russian>
-		<Italian>Shuttle</Italian>
+		<Italian>Shuttle spaziale</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_SPACE_SHUTTLE_PEDIA</Tag>
@@ -3317,7 +3317,7 @@
 		<English>Mission Reward (Transneptunian)</English>
 		<French>Retour de Mission (Transneptunian)</French>
 		<Russian>Ýôôåêò (Òðàíñíåïòóí.)</Russian>
-		<Italian>Spazio oltre Nettuno (ricompensa missione)</Italian>
+		<Italian>Spazio transnettuniano (ricompensa missione)</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_TRANSNEPTUNIAN_REWARD_PEDIA</Tag>
@@ -3396,92 +3396,92 @@
 		<English>Warlord General</English>
 		<French>Général de l'espace</French>
 		<Russian>Ïîëêîâîäåö</Russian>
-		<Italian>Warlord generale</Italian>
+		<Italian>Generale militare</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WARLORDVII</Tag>
 		<English>Warlord Marshal</English>
 		<French>Marschal spatial</French>
 		<Russian>Ìàðøàë</Russian>
-		<Italian>Warlord sceriffo</Italian>
+		<Italian>Colonnello militare supremo</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WARLORDVIII</Tag>
 		<English>Warlord Overlord</English>
 		<French>Suzerain Spatial</French>
 		<Russian>Ýêçàðõ</Russian>
-		<Italian>Warlord supremo</Italian>
+		<Italian>Comandante militare supremo</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WARLORDVIIIS</Tag>
 		<English>Captured Overlord</English>
-		<Italian>Warlord supremo prigioniero</Italian>
+		<Italian>Comandante militare supremo prigioniero</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WARLORDVIIS</Tag>
 		<English>Captured Marshal</English>
-		<Italian>Warlord sceriffo prigioniero</Italian>
+		<Italian>Colonnello militare supremo prigioniero</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WARLORDVIS</Tag>
 		<English>Captured General</English>
-		<Italian>Warlord generale prigioniero</Italian>
+		<Italian>Generale militare prigioniero</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WORLDSHIP</Tag>
 		<English>Worldship</English>
 		<French>Vaisseau-monde</French>
 		<Russian>Ïåðåñåëåí÷. çâåçäîëåò</Russian>
-		<Italian>Nave spaziale-mondo</Italian>
+		<Italian>Astronave mondo</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WORLDSHIP2</Tag>
 		<English>Genetic Seedship</English>
 		<French>Vaisseau-Colonisateur Génétique</French>
 		<Russian>Êîðàáëü Ïîêîëåíèé</Russian>
-		<Italian>Nave spaziale colonizzatrice genetica</Italian>
+		<Italian>Astronave madre genetica</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WORLDSHIP2_HELP</Tag>
 		<English>[ICON_BULLET]Can build cities in the Orion Arm and Milky Way</English>
 		<French>[ICON_BULLET]Peut construire les Villes dans le bras d'Orion et la Voie lactée</French>
 		<Russian>[ICON_BULLET][COLOR_YELLOW]Ïîäñêàçêà: [COLOR_REVERT]Ìîæåò ñòðîèòü ãîðîäà â ðóêàâå Îðèîíà â ãàëàêòèêå Ìëå÷íûé Ïóòü</Russian>
-		<Italian>[ICON_BULLET]Può fondare città sul braccio di Orione e nella via lattea</Italian>
+		<Italian>[ICON_BULLET]L'unità può [COLOR_HIGHLIGHT_TEXT]fondare città[COLOR_REVERT] sul braccio di Orione e nella via lattea</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WORLDSHIP3</Tag>
 		<English>Alcubierre Seedship</English>
 		<French>Vaisseau-Colonisateur Alcubierre</French>
 		<Russian>Çâåçäîëåò Àëüêóáüåððå</Russian>
-		<Italian>Nave spaziale colonizzatrice di Alcubierre</Italian>
+		<Italian>Astronave madre di Alcubierre</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WORLDSHIP3_HELP</Tag>
 		<English>[ICON_BULLET]Can build cities in the Milky Way and Universe</English>
 		<French>[ICON_BULLET]Peut construire les Villes dans la Voie lactée, et tout l'Univers</French>
 		<Russian>[ICON_BULLET][COLOR_YELLOW]Ïîäñêàçêà: [COLOR_REVERT]Ìîæåò ñòðîèòü ãîðîäà â îñòàëüíîé ÷àñòè Ìëå÷íîãî Ïóòè è ïðî÷èõ ãàëàêòèêàõ</Russian>
-		<Italian>[ICON_BULLET]Può fondare città nella via lattea e nel'universo</Italian>
+		<Italian>[ICON_BULLET]L'unità può [COLOR_HIGHLIGHT_TEXT]fondare città[COLOR_REVERT] nella via lattea e nell'universo</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WORLDSHIP4</Tag>
 		<English>Quantum Seedship</English>
 		<French>Vaisseau-Colonisateur Quantique</French>
 		<Russian>Êâàíòîâûé êîðàáëü</Russian>
-		<Italian>Nave spaziale colonizzatrice quantistica</Italian>
+		<Italian>Astronave madre quantistica</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WORLDSHIP4_HELP</Tag>
 		<English>[ICON_BULLET]Can build cities in the Universe and beyond</English>
 		<French>[ICON_BULLET]Peut construire les Villes dans l'Univers, et plus loin</French>
 		<Russian>[ICON_BULLET][COLOR_YELLOW]Ïîäñêàçêà: [COLOR_REVERT]Ìîæíî ñòðîèòü ãîðîäà â ëþáîì ñåêòîðå Âñåëåííîé è çà åå ïðåäåëàìè</Russian>
-		<Italian>[ICON_BULLET]Può fondare città nel'universo e oltre</Italian>
+		<Italian>[ICON_BULLET]L'unità può [COLOR_HIGHLIGHT_TEXT]fondare città[COLOR_REVERT] nell'universo e oltre</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WORLDSHIP_DEFENDER</Tag>
 		<English>Worldship Defender</English>
 		<French>Vaisseau-monde de Défense</French>
 		<Russian>Çâåçäíûé ïàòðóëü</Russian>
-		<Italian>Nave colonizzatrice spaziale-mondo</Italian>
+		<Italian>Astronave mondo di difesa</Italian>
 	</TEXT>
 	<TEXT>
 		<Tag>TXT_KEY_UNIT_WORLDSHIP_DEFENDER_PEDIA</Tag>
@@ -3494,6 +3494,6 @@
 		<English>[ICON_BULLET]Can build cities in the Transtellar space and Star terrains.[NEWLINE]Interstellar and Stellar colonies are completely different.</English>
 		<French>[ICON_BULLET]Peut construire les Villes dans le nuage d'Oort, et l'espace transtellaire</French>
 		<Russian>[ICON_BULLET][COLOR_YELLOW]Ïîäñêàçêà: [COLOR_REVERT]Ìîæåò ñòðîèòü ãîðîäà â Îáëàêå Îîðòà è ìåæçâåçäíîì ïðîñòðàíñòâå</Russian>
-		<Italian>[ICON_BULLET]Può fondare città nello spazio transtellare e sulle caselle delle stelle.</Italian>
+		<Italian>[ICON_BULLET]L'unità può [COLOR_HIGHLIGHT_TEXT]fondare città[COLOR_REVERT] nello spazio transtellare e sulle caselle delle stelle</Italian>
 	</TEXT>
 </Civ4GameText>

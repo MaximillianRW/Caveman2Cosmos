@@ -309,7 +309,8 @@ class CvMainInterface:
 				(obj.getText("TXT_KEY_HUD_BUTTON_ADVISOR_RELIGIOUS", ()),		"F7"),
 				(obj.getText("TXT_KEY_HUD_BUTTON_ADVISOR_CORPORATE", ()),		"Shift+F7"),
 				(obj.getText("TXT_KEY_HUD_BUTTON_ADVISOR_INTELLIGENCE", ()),	"Ctrl+E"),
-				(obj.getText("TXT_KEY_HUD_BUTTON_ADVISOR_PARTISAN", ()),		"Ctrl+Shift+G")
+				(obj.getText("TXT_KEY_HUD_BUTTON_ADVISOR_PARTISAN", ()),		"Ctrl+Shift+G"),
+				(obj.getText("TXT_KEY_HUD_BUTTON_ADVISOR_HERITAGE", ()),		"")
 			]
 			# Building infos:
 			aBuildingList0 = []
@@ -334,7 +335,7 @@ class CvMainInterface:
 				CvBonusInfo = GC.getBonusInfo(iBonus)
 				szName = CvBonusInfo.getDescription()
 				szChar = u"%c " %CvBonusInfo.getChar()
-				if CvBonusInfo.getConstAppearance() > 0: ## Map resource
+				if CvBonusInfo.isMapBonus(): ## Map resource
 					aBonusList1.append((szName, iBonus, szChar))
 				elif CvBonusInfo.getBonusClassType() != BONUSCLASS_CULTURE:
 					aBonusList2.append((szName, iBonus, szChar))
@@ -823,62 +824,68 @@ class CvMainInterface:
 		x = xRes - iSize*2
 		y = 22
 		dx = 24
+		# Heritage
+		btn = "AdvBtn10"
+		screen.setImageButton(btn, "", x, y, iSize, iSize, eWidGen, 0, 0)
+		screen.setStyle(btn, "Button_HUDBtnHeritage_Style")
+		screen.hide(btn)
+		x -= dx
 		# Partisan:
 		if self.GO_REVOLUTION:
-			btn = "AdvisorButton9"
+			btn = "AdvBtn9"
 			screen.setImageButton(btn, "Art/Interface/Buttons/revbtn.dds", x, y, iSize, iSize, eWidGen, 0, 0)
 			screen.setStyle(btn, "Button_HUDSmall_Style")
 			screen.hide(btn)
 			x -= dx
 		# Intelligence
-		btn = "AdvisorButton8"
+		btn = "AdvBtn8"
 		screen.setImageButton(btn, "", x, y, iSize, iSize, eWidGen, 0, 0)
 		screen.setStyle(btn, "Button_HUDAdvisorEspionage_Style")
 		screen.hide(btn)
 		x -= dx
 		# Corporation
-		btn = "AdvisorButton7"
+		btn = "AdvBtn7"
 		screen.setImageButton(btn, "", x, y, iSize, iSize, eWidGen, 0, 0)
 		screen.setStyle(btn, "Button_HUDAdvisorCorporation_Style")
 		screen.hide(btn)
 		x -= dx
 		# Religious
-		btn = "AdvisorButton6"
+		btn = "AdvBtn6"
 		screen.setImageButton(btn, "", x, y, iSize, iSize, eWidGen, 0, 0)
 		screen.setStyle(btn, "Button_HUDAdvisorReligious_Style")
 		screen.hide(btn)
 		x -= dx
 		# Technology
-		btn = "AdvisorButton5"
+		btn = "AdvBtn5"
 		screen.setImageButton(btn, "", x, y, iSize, iSize, eWidGen, 0, 0)
 		screen.setStyle(btn, "Button_HUDAdvisorTechnology_Style")
 		screen.hide(btn)
 		x -= dx
 		# Military
-		btn = "AdvisorButton4"
+		btn = "AdvBtn4"
 		screen.setImageButton(btn, "", x, y, iSize, iSize, eWidGen, 0, 0)
 		screen.setStyle(btn, "Button_HUDAdvisorMilitary_Style")
 		screen.hide(btn)
 		x -= dx
 		# Foreign
-		btn = "AdvisorButton3"
+		btn = "AdvBtn3"
 		screen.setImageButton(btn, "", x, y, iSize, iSize, eWidGen, 0, 0)
 		screen.setStyle(btn, "Button_HUDAdvisorForeign_Style")
 		screen.hide(btn)
 		x -= dx
 		# Civics
-		btn = "AdvisorButton2"
+		btn = "AdvBtn2"
 		screen.setImageButton(btn, "", x, y, iSize, iSize, eWidGen, 0, 0)
 		screen.setStyle(btn, "Button_HUDAdvisorCivics_Style")
 		screen.hide(btn)
 		x -= dx
 		# Domestic
-		btn = "AdvisorButton0"
+		btn = "AdvBtn0"
 		screen.setImageButton(btn, "", x, y, iSize, iSize, eWidGen, 0, 0)
 		screen.setStyle(btn, "Button_HUDAdvisorDomestic_Style")
 		screen.hide(btn)
 		# Treasury
-		btn = "AdvisorButton1"
+		btn = "AdvBtn1"
 		screen.setText(btn, "", "<img=Art/Interface/Buttons/general/Treasury.dds>", 1<<0, 26, 0, 0, eFontSmall, eWidGen, 0, 0)
 		screen.setLabel("Treasury", "", "", 1<<0, 60, 0, 0, eFontSmall, eWidGen, 0, 0)
 		screen.hide(btn)
@@ -1034,6 +1041,9 @@ class CvMainInterface:
 		screen.setImageButton("EndTurnButton", "", xEoT, yEoT, 32, 32, WidgetTypes.WIDGET_END_TURN, 1, 1)
 		screen.setStyle("EndTurnButton", "Button_HUDEndTurn_Style")
 		screen.setEndTurnState("EndTurnButton", "Disable")
+
+		screen.addDDSGFCAt("EndTurnButtonDecal", "EndTurnButton", self.artPathRawYieldsProduction, 0, 0, 32, 32, eWidGen, 0, 0, True)
+		screen.setHitTest("EndTurnButtonDecal", HitTestTypes.HITTEST_NOHIT)
 
 		# *************** #
 		# CITIZEN BUTTONS #
@@ -1280,6 +1290,8 @@ class CvMainInterface:
 			screen.hide("TimeText")
 			screen.hide("EraIndicator0")
 
+		screen.hide("EndTurnButtonDecal")
+
 		# Update the "End Turn" button.
 		if CyIF.shouldDisplayEndTurnButton() and IFT == InterfaceVisibility.INTERFACE_SHOW:
 			eState = CyIF.getEndTurnState()
@@ -1293,6 +1305,10 @@ class CvMainInterface:
 			elif eState == EndTurnButtonStates.END_TURN_GO:
 				screen.setEndTurnState("EndTurnButton", "Red")
 				screen.showEndTurn("EndTurnButton")
+
+			if self.CyPlayer.hasIdleCity():
+				screen.show("EndTurnButtonDecal")
+
 		else:
 			screen.hideEndTurn("EndTurnButton")
 
@@ -1486,6 +1502,7 @@ class CvMainInterface:
 
 			CyUnit = CyIF.getHeadSelectedUnit()
 			if CyUnit:
+				self.CyPlayer.setForcedCityCycle(False);
 				print "Unit Selected"
 				iUnitID = CyUnit.getID()
 				if not AtUnitPre or iUnitID != AtUnitPre.iUnitID:
@@ -1549,7 +1566,7 @@ class CvMainInterface:
 			screen.show("CityScrollPlus")
 			screen.show("MainMenuButton")
 			screen.show("PediaButton0")
-			screen.show("AdvisorButton1")
+			screen.show("AdvBtn1")
 			if self.InCity:
 				screen.show("CityWorkQueue")
 				screen.show("CityTab0")
@@ -1567,15 +1584,16 @@ class CvMainInterface:
 				screen.hide("InterfaceTopCenter")
 				screen.hide("InterfaceTopRight")
 				screen.hide("TurnLogBtn")
-				screen.hide("AdvisorButton0")
-				screen.hide("AdvisorButton2")
-				screen.hide("AdvisorButton3")
-				screen.hide("AdvisorButton4")
-				screen.hide("AdvisorButton5")
-				screen.hide("AdvisorButton6")
-				screen.hide("AdvisorButton7")
-				screen.hide("AdvisorButton8")
-				screen.hide("AdvisorButton9")
+				screen.hide("AdvBtn0")
+				screen.hide("AdvBtn10")
+				screen.hide("AdvBtn2")
+				screen.hide("AdvBtn3")
+				screen.hide("AdvBtn4")
+				screen.hide("AdvBtn5")
+				screen.hide("AdvBtn6")
+				screen.hide("AdvBtn7")
+				screen.hide("AdvBtn8")
+				screen.hide("AdvBtn9")
 				screen.hide("VictoryAdvBtn")
 				screen.hide("InfoAdvBtn")
 				screen.hide("OptionsBtnBUG0")
@@ -1588,15 +1606,16 @@ class CvMainInterface:
 				screen.show("InterfaceTopCenter")
 				screen.show("InterfaceTopRight")
 				screen.show("TurnLogBtn")
-				screen.show("AdvisorButton0")
-				screen.show("AdvisorButton2")
-				screen.show("AdvisorButton3")
-				screen.show("AdvisorButton4")
-				screen.show("AdvisorButton5")
-				screen.show("AdvisorButton6")
-				screen.show("AdvisorButton7")
-				screen.show("AdvisorButton8")
-				screen.show("AdvisorButton9")
+				screen.show("AdvBtn0")
+				screen.show("AdvBtn10")
+				screen.show("AdvBtn2")
+				screen.show("AdvBtn3")
+				screen.show("AdvBtn4")
+				screen.show("AdvBtn5")
+				screen.show("AdvBtn6")
+				screen.show("AdvBtn7")
+				screen.show("AdvBtn8")
+				screen.show("AdvBtn9")
 				screen.show("VictoryAdvBtn")
 				screen.show("InfoAdvBtn")
 				screen.show("OptionsBtnBUG0")
@@ -1615,7 +1634,7 @@ class CvMainInterface:
 			screen.moveItem("EndTurnText", 0, self.yRes - 128, 0)
 			screen.show("MainMenuButton")
 			screen.show("PediaButton0")
-			screen.show("AdvisorButton1")
+			screen.show("AdvBtn1")
 			screen.hide("InterfaceLeftBackgroundWidget")
 			screen.show("InterfaceTopBackgroundWidget")
 			screen.hide("InterfaceCenterBackgroundWidget")
@@ -1627,15 +1646,16 @@ class CvMainInterface:
 			screen.show("InterfaceTopCenter")
 			screen.hide("InterfaceTopRight")
 			screen.hide("TurnLogBtn")
-			screen.hide("AdvisorButton0")
-			screen.hide("AdvisorButton2")
-			screen.hide("AdvisorButton3")
-			screen.hide("AdvisorButton4")
-			screen.hide("AdvisorButton5")
-			screen.hide("AdvisorButton6")
-			screen.hide("AdvisorButton7")
-			screen.hide("AdvisorButton8")
-			screen.hide("AdvisorButton9")
+			screen.hide("AdvBtn0")
+			screen.hide("AdvBtn10")
+			screen.hide("AdvBtn2")
+			screen.hide("AdvBtn3")
+			screen.hide("AdvBtn4")
+			screen.hide("AdvBtn5")
+			screen.hide("AdvBtn6")
+			screen.hide("AdvBtn7")
+			screen.hide("AdvBtn8")
+			screen.hide("AdvBtn9")
 			screen.hide("VictoryAdvBtn")
 			screen.hide("InfoAdvBtn")
 			screen.hide("OptionsBtnBUG0")
@@ -1672,16 +1692,17 @@ class CvMainInterface:
 			screen.hide("Treasury")
 			screen.hide("PediaButton0")
 			screen.hide("TurnLogBtn")
-			screen.hide("AdvisorButton0")
-			screen.hide("AdvisorButton1")
-			screen.hide("AdvisorButton2")
-			screen.hide("AdvisorButton3")
-			screen.hide("AdvisorButton4")
-			screen.hide("AdvisorButton5")
-			screen.hide("AdvisorButton6")
-			screen.hide("AdvisorButton7")
-			screen.hide("AdvisorButton8")
-			screen.hide("AdvisorButton9")
+			screen.hide("AdvBtn1")
+			screen.hide("AdvBtn0")
+			screen.hide("AdvBtn10")
+			screen.hide("AdvBtn2")
+			screen.hide("AdvBtn3")
+			screen.hide("AdvBtn4")
+			screen.hide("AdvBtn5")
+			screen.hide("AdvBtn6")
+			screen.hide("AdvBtn7")
+			screen.hide("AdvBtn8")
+			screen.hide("AdvBtn9")
 			screen.hide("VictoryAdvBtn")
 			screen.hide("InfoAdvBtn")
 			screen.hide("CityScrollMinus")
@@ -1717,16 +1738,17 @@ class CvMainInterface:
 			screen.hide("Treasury")
 			screen.hide("PediaButton0")
 			screen.hide("TurnLogBtn")
-			screen.hide("AdvisorButton0")
-			screen.hide("AdvisorButton1")
-			screen.hide("AdvisorButton2")
-			screen.hide("AdvisorButton3")
-			screen.hide("AdvisorButton4")
-			screen.hide("AdvisorButton5")
-			screen.hide("AdvisorButton6")
-			screen.hide("AdvisorButton7")
-			screen.hide("AdvisorButton8")
-			screen.hide("AdvisorButton9")
+			screen.hide("AdvBtn1")
+			screen.hide("AdvBtn0")
+			screen.hide("AdvBtn10")
+			screen.hide("AdvBtn2")
+			screen.hide("AdvBtn3")
+			screen.hide("AdvBtn4")
+			screen.hide("AdvBtn5")
+			screen.hide("AdvBtn6")
+			screen.hide("AdvBtn7")
+			screen.hide("AdvBtn8")
+			screen.hide("AdvBtn9")
 			screen.hide("VictoryAdvBtn")
 			screen.hide("InfoAdvBtn")
 			screen.hide("CityScrollMinus")
@@ -5592,6 +5614,14 @@ class CvMainInterface:
 				elif TYPE == "BareMap":
 					self.updateTooltip(screen, TRNSLTR.getText("TXT_KEY_HUD_BUTTON_TOGGLE_BARE_MAP", ()))
 
+			elif NAME == "AdvBtn":
+				advisorTip = self.advisorButtonTip[ID]
+				szTxt = "<color=102,229,255>" + advisorTip[0] + "  <color=144,255,72>&#60" + advisorTip[1] + "&#62</color>"
+				if ID == 1:
+					self.treasuryHelp(screen, szTxt)
+				else:
+					self.updateTooltip(screen, szTxt)
+
 			elif NAME == "GreatPersonBar":
 				self.helpGreatPersonBar(screen)
 
@@ -5601,14 +5631,6 @@ class CvMainInterface:
 				screen.hide("PlotHelp")
 				POINT = Win32.getCursorPos()
 				self.xMouseNoPlotHelp = POINT.x; self.yMouseNoPlotHelp = POINT.y
-
-			elif NAME == "AdvisorButton":
-				advisorTip = self.advisorButtonTip[ID]
-				szTxt = "<color=102,229,255>" + advisorTip[0] + "  <color=144,255,72>&#60" + advisorTip[1] + "&#62</color>"
-				if ID == 1:
-					self.treasuryHelp(screen, szTxt)
-				else:
-					self.updateTooltip(screen, szTxt)
 
 			elif NAME == "PediaButton":
 				self.updateTooltip(screen, "<color=101,229,255>Wiki  <color=144,255,72>&#60F12&#62<color=255,255,255>")
@@ -5950,7 +5972,7 @@ class CvMainInterface:
 				elif TYPE == "BareMap":
 					CyIF.toggleBareMapMode()
 
-			elif NAME == "AdvisorButton":
+			elif NAME == "AdvBtn":
 				if not ID:
 					UP.showDomesticAdvisor(-1)
 				elif ID == 1:
@@ -5971,6 +5993,8 @@ class CvMainInterface:
 					UP.showEspionageAdvisor()
 				elif ID == 9:
 					UP.showRevolutionWatchAdvisor(self)
+				elif ID == 10:
+					UP.showHeritageScreen()
 
 			elif NAME == "PediaButton":
 				UP.pediaShow()
