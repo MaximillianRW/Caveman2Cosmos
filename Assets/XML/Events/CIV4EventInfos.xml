@@ -48,7 +48,75 @@
 			<iFeatureChange>1</iFeatureChange>
 		</EventInfo>
 		<EventInfo>
-			<Type>EVENT_FOREST_NEW_2</Type>
+			<Type>EVENT_FOREST_MASSIVE_WILDFIRE_1</Type>
+			<Description>TXT_KEY_EVENT_FOREST_MASSIVE_WILDFIRE_1</Description>
+			<iGold>-150</iGold>
+			<FeatureType>FEATURE_FOREST</FeatureType>
+			<iFeatureChange>-1</iFeatureChange>
+			<AdditionalEvents>
+				<EventChance>
+					<Event>EVENT_FOREST_WILDFIRE_SAVED</Event>
+					<iEventChance>55</iEventChance>
+				</EventChance>
+				<EventChance>
+					<Event>EVENT_WILDFIRE_CATCHES_CITY</Event>
+					<iEventChance>5</iEventChance>
+				</EventChance>
+			</AdditionalEvents>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>3</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_FOREST_MASSIVE_WILDFIRE_2</Type>
+			<Description>TXT_KEY_EVENT_FOREST_MASSIVE_WILDFIRE_2</Description>
+			<iGold>-50</iGold>
+			<FeatureType>FEATURE_FOREST</FeatureType>
+			<iFeatureChange>-1</iFeatureChange>
+			<iUnitImmobileTurns>1</iUnitImmobileTurns>
+			<AdditionalEvents>
+				<EventChance>
+					<Event>EVENT_WILDFIRE_CATCHES_CITY</Event>
+					<iEventChance>30</iEventChance>
+				</EventChance>
+			</AdditionalEvents>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>2</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_FOREST_MASSIVE_WILDFIRE_3</Type>
+			<Description>TXT_KEY_EVENT_FOREST_MASSIVE_WILDFIRE_3</Description>
+			<bPickCity>1</bPickCity>
+			<iHurryAnger>1</iHurryAnger>
+			<FeatureType>FEATURE_FOREST</FeatureType>
+			<iFeatureChange>-1</iFeatureChange>
+			<iImprovementChange>-1</iImprovementChange>
+			<iRouteChange>-1</iRouteChange>
+			<iUnitImmobileTurns>1</iUnitImmobileTurns>
+			<AdditionalEvents>
+				<EventChance>
+					<Event>EVENT_WILDFIRE_CATCHES_CITY</Event>
+					<iEventChance>50</iEventChance>
+				</EventChance>
+			</AdditionalEvents>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_FOREST_WILDFIRE_SAVED</Type>
+			<Description>TXT_KEY_EVENT_WILDFIRE_2</Description>
+			<FeatureType>FEATURE_FOREST</FeatureType>
+			<iFeatureChange>1</iFeatureChange>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_WILDFIRE_CATCHES_CITY</Type>
+			<Description>TXT_KEY_EVENT_WILDFIRE_1</Description>
+			<bPickCity>1</bPickCity>
+			<PythonCallback>doWildFire</PythonCallback>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<PythonHelp>getHelpWildFire</PythonHelp>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_FOREST_NEW_1</Type>
 			<Description>TXT_KEY_EVENT_GENERIC_CHOICE_GOOD_NEWS</Description>
 			<FeatureType>FEATURE_FOREST_BURNT</FeatureType>
 			<iFeatureChange>-1</iFeatureChange>
@@ -61,7 +129,7 @@
 		</EventInfo>
 		<EventInfo>
 			<Type>EVENT_FOREST_NEW_END</Type>
-			<FeatureType>FEATURE_FOREST</FeatureType>
+			<FeatureType>FEATURE_FOREST_YOUNG</FeatureType>
 			<iFeatureChange>1</iFeatureChange>
 		</EventInfo>
 		<EventInfo>
@@ -143,6 +211,7 @@
 					<iFlavor>1</iFlavor>
 				</TechFlavor>
 			</TechFlavors>
+			<iGold>-300</iGold>
 			<iTechPercent>15</iTechPercent>
 			<iTechCostPercent>5</iTechCostPercent>
 			<iTechMinTurnsLeft>4</iTechMinTurnsLeft>
@@ -200,15 +269,67 @@
 			<Type>EVENT_HAPPY_HUNTING_1</Type>
 			<Description>TXT_KEY_EVENT_HAPPY_HUNTING_1</Description>
 			<bPickCity>1</bPickCity>
-			<iFood>8</iFood>
+			<iFood>30</iFood>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
 		<EventInfo>
-			<Type>EVENT_MOTHER_LODE_1</Type>
+			<Type>EVENT_HAPPY_HUNTING_2</Type>
+			<Description>TXT_KEY_EVENT_HAPPY_HUNTING_2</Description>
+			<bPickCity>1</bPickCity>
+			<iHappyTurns>1</iHappyTurns>
+			<iFood>60</iFood>
+			<iGold>-20</iGold>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_MOTHER_LODE_GOLD_1</Type>
 			<Description>TXT_KEY_EVENT_MOTHER_LODE_1</Description>
-			<iGold>100</iGold>
-			<iRandomGold>100</iRandomGold>
+			<iGold>300</iGold>
+			<iRandomGold>500</iRandomGold>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_MOTHER_LODE_GOLD_2</Type>
+			<Description>TXT_KEY_EVENT_MOTHER_LODE_2</Description>
+			<iGold>-200</iGold>
+			<AdditionalEvents>
+				<EventChance>
+					<Event>EVENT_MOTHER_LODE_3</Event>
+					<iEventChance>50</iEventChance>
+				</EventChance>
+			</AdditionalEvents>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_MOTHER_LODE_SILVER_1</Type>
+			<Description>TXT_KEY_EVENT_MOTHER_LODE_1</Description>
+			<iGold>200</iGold>
+			<iRandomGold>400</iRandomGold>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_MOTHER_LODE_SILVER_2</Type>
+			<Description>TXT_KEY_EVENT_MOTHER_LODE_2</Description>
+			<iGold>-200</iGold>
+			<AdditionalEvents>
+				<EventChance>
+					<Event>EVENT_MOTHER_LODE_3</Event>
+					<iEventChance>50</iEventChance>
+				</EventChance>
+			</AdditionalEvents>
+			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
+			<iAIValue>1000</iAIValue>
+		</EventInfo>
+		<EventInfo>
+			<Type>EVENT_MOTHER_LODE_3</Type>
+			<Description>TXT_KEY_EVENT_MOTHER_LODE</Description>
+			<iGold>500</iGold>
+			<iRandomGold>2000</iRandomGold>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
 			<iAIValue>1000</iAIValue>
 		</EventInfo>
@@ -1675,6 +1796,7 @@
 			<QuestFailText>TXT_KEY_EVENT_FAIL_OLYMPICS</QuestFailText>
 			<bQuest>1</bQuest>
 			<iGold>-20</iGold>
+			<bGameSpeedScale>1</bGameSpeedScale>
 			<PythonCallback>doAncientOlympics2</PythonCallback>
 			<PythonHelp>getHelpModernOlympics</PythonHelp>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
@@ -7566,6 +7688,7 @@
 			<Description>TXT_KEY_EVENT_SUMMER_OF_LOVE_1</Description>
 			<OtherPlayerPopup>TXT_KEY_EVENT_SUMMER_OF_LOVE_OTHER_1</OtherPlayerPopup>
 			<iCulture>1000</iCulture>
+			<bGameSpeedScale>1</bGameSpeedScale>
 			<iHurryAnger>3</iHurryAnger>
 			<iMaxNumReligions>-1</iMaxNumReligions>
 			<Button>,Art/Interface/Buttons/Process/Blank.dds,Art/Interface/Buttons/Beyond_the_Sword_Atlas.dds,8,5</Button>
@@ -8065,6 +8188,7 @@
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
 			<iGold>-200</iGold>
+			<bGameSpeedScale>1</bGameSpeedScale>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
@@ -8149,6 +8273,7 @@
 			<bPickOtherPlayerCity>0</bPickOtherPlayerCity>
 			<bDeclareWar>0</bDeclareWar>
 			<iGold>-150</iGold>
+			<bGameSpeedScale>1</bGameSpeedScale>
 			<bGoldToPlayer>0</bGoldToPlayer>
 			<iRandomGold>0</iRandomGold>
 			<iCulture>0</iCulture>
