@@ -16704,8 +16704,11 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 		}
 	}
 	// Nuclear Bomb
-	const bool bNuked = pPlot && pSpyUnit
-		&& kMission.isNuke() && pSpyUnit->spyNuke(pPlot->getX(), pPlot->getY(), bCaught) ? true : false;
+	const bool bNuked = pPlot && pSpyUnit && kMission.isNuke();
+	if (bNuked)
+	{
+		pSpyUnit->spyNuke(pPlot->getX(), pPlot->getY(), bCaught);
+	}
 
 	int iHave = 0;
 	if (NO_TEAM != eTargetTeam)
@@ -16727,7 +16730,6 @@ bool CvPlayer::doEspionageMission(EspionageMissionTypes eMission, PlayerTypes eT
 
 	if (bSomethingHappened)
 	{
-
 		int iX = -1;
 		int iY = -1;
 		if (pPlot)
@@ -21606,9 +21608,14 @@ void CvPlayer::applyEvent(EventTypes eEvent, int iEventTriggeredId, bool bUpdate
 
 		if (NO_PLAYER != pTriggeredData->m_eOtherPlayer)
 		{
-			if (kEvent.getEspionagePoints() != 0)
+			int iValue = kEvent.getEspionagePoints();
+			if (iValue != 0)
 			{
-				GET_TEAM(getTeam()).changeEspionagePointsAgainstTeam(GET_PLAYER(pTriggeredData->m_eOtherPlayer).getTeam(), kEvent.getEspionagePoints());
+				if (kEvent.isGameSpeedScale())
+				{
+					iValue = iValue * GC.getGameSpeedInfo(GC.getGame().getGameSpeedType()).getSpeedPercent() / 100;
+				}
+				GET_TEAM(getTeam()).changeEspionagePointsAgainstTeam(GET_PLAYER(pTriggeredData->m_eOtherPlayer).getTeam(), iValue);
 			}
 		}
 
@@ -22444,7 +22451,7 @@ void CvPlayer::doEvents()
 
 	const bool bNewEventEligible =
 	(
-		GC.getGame().getElapsedGameTurns() >= GC.getDefineINT("FIRST_EVENT_DELAY_TURNS")
+		GC.getGame().getElapsedGameTurns() > 0
 		&&
 		GC.getGame().getSorenRandNum(GC.getDefineINT("EVENT_PROBABILITY_ROLL_SIDES"), "Global event check") < GC.getEraInfo(getCurrentEra()).getEventChancePerTurn()
 	);
@@ -22847,12 +22854,15 @@ bool CvPlayer::isEventTriggerPossible(EventTriggerTypes eTrigger, bool bIgnoreAc
 {
 	PROFILE_EXTRA_FUNC();
 	const CvEventTriggerInfo& kTrigger = GC.getEventTriggerInfo(eTrigger);
-	if (NO_HANDICAP != kTrigger.getMinDifficulty())
+
+	if (kTrigger.getProbability() == 0)
 	{
-		if (GC.getGame().getHandicapType() < kTrigger.getMinDifficulty())
-		{
-			return false;
-		}
+		return false;
+	}
+
+	if (NO_HANDICAP != kTrigger.getMinDifficulty() && GC.getGame().getHandicapType() < kTrigger.getMinDifficulty())
+	{
+		return false;
 	}
 
 	if (kTrigger.isSinglePlayer() && GC.getGame().isGameMultiPlayer())
@@ -22876,12 +22886,9 @@ bool CvPlayer::isEventTriggerPossible(EventTriggerTypes eTrigger, bool bIgnoreAc
 		}
 	}
 
-	if (!kTrigger.isRecurring())
+	if (!kTrigger.isRecurring() && isTriggerFired(eTrigger))
 	{
-		if (isTriggerFired(eTrigger))
-		{
-			return false;
-		}
+		return false;
 	}
 
 	if (kTrigger.getNumPrereqOrTechs() > 0)
@@ -22896,7 +22903,6 @@ bool CvPlayer::isEventTriggerPossible(EventTriggerTypes eTrigger, bool bIgnoreAc
 				break;
 			}
 		}
-
 		if (!bFoundValid)
 		{
 			return false;
@@ -22906,38 +22912,23 @@ bool CvPlayer::isEventTriggerPossible(EventTriggerTypes eTrigger, bool bIgnoreAc
 
 	if (kTrigger.getNumPrereqAndTechs() > 0)
 	{
-		bool bFoundValid = true;
-
 		for (int iI = 0; iI < kTrigger.getNumPrereqAndTechs(); iI++)
 		{
 			if (!GET_TEAM(getTeam()).isHasTech((TechTypes)(kTrigger.getPrereqAndTechs(iI))))
 			{
-				bFoundValid = false;
-				break;
+				return false;
 			}
-		}
-
-		if (!bFoundValid)
-		{
-			return false;
 		}
 	}
 
 	if (kTrigger.getNumPrereqEvents() > 0)
 	{
-		bool bFoundValid = true;
 		for (int iI = 0; iI < kTrigger.getNumPrereqEvents(); iI++)
 		{
 			if (!getEventOccured((EventTypes)kTrigger.getPrereqEvent(iI)))
 			{
-				bFoundValid = false;
-				break;
+				return false;
 			}
-		}
-
-		if (!bFoundValid)
-		{
-			return false;
 		}
 	}
 
@@ -22953,7 +22944,6 @@ bool CvPlayer::isEventTriggerPossible(EventTriggerTypes eTrigger, bool bIgnoreAc
 				break;
 			}
 		}
-
 		if (!bFoundValid)
 		{
 			return false;
@@ -23002,19 +22992,15 @@ bool CvPlayer::isEventTriggerPossible(EventTriggerTypes eTrigger, bool bIgnoreAc
 int CvPlayer::getEventTriggerWeight(EventTriggerTypes eTrigger) const
 {
 	PROFILE_EXTRA_FUNC();
+
 	if (!isEventTriggerPossible(eTrigger))
 	{
 		return 0;
 	}
-
 	const CvEventTriggerInfo& kTrigger = GC.getEventTriggerInfo(eTrigger);
 
-	if (kTrigger.getProbability() < 0)
-	{
-		return kTrigger.getProbability();
-	}
-
 	int iProbability = kTrigger.getProbability();
+	if (iProbability < 0) return -1;
 
 	if (kTrigger.isProbabilityUnitMultiply() && kTrigger.getNumUnits() > 0)
 	{
@@ -23032,10 +23018,8 @@ int CvPlayer::getEventTriggerWeight(EventTriggerTypes eTrigger) const
 				iNumBuildings += getBuildingCount((BuildingTypes)kTrigger.getBuildingRequired(i));
 			}
 		}
-
 		iProbability *= iNumBuildings;
 	}
-
 	return iProbability;
 }
 

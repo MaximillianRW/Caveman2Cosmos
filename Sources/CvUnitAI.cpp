@@ -1651,31 +1651,27 @@ void CvUnitAI::AI_animalMove()
 				return;
 			}
 		}
-		else
+		// Recklessness based on animal aggression.
+		// 1% odds assessment is there to account for some small understanding of likelihood of success even in an aggressive action.
+		else if (
+			GC.getGame().getSorenRandNum(10, "Animal Attack")
+			<
+			getMyAggression(GC.getHandicapInfo(GC.getGame().getHandicapType()).getAnimalAttackProb()))
 		{
-			// Recklessness based on animal aggression.
-			// 1% odds assessment is there to account for some small understanding of likelihood of success even in an aggressive action.
-			if (GC.getGame().getSorenRandNum(10, "Animal Attack")
-				<
-				getMyAggression(GC.getHandicapInfo(GC.getGame().getHandicapType()).getAnimalAttackProb()))
+			if (AI_anyAttack(2, 1, 0, false))
 			{
-				if (AI_anyAttack(2, 1, 0, false))
-				{
-					return;
-				}
+				return;
 			}
-			else // not reckless.
+		}
+		// Animals are pretty good at assessing their chances of taking down prey, therefore 60% odds prereq.
+		else if (
+			GC.getGame().getSorenRandNum(100, "Animal Attack")
+			<
+			GC.getHandicapInfo(GC.getGame().getHandicapType()).getAnimalAttackProb())
+		{
+			if (AI_anyAttack(2, 60, 0, false))
 			{
-				// Animals are pretty good at assessing their chances of taking down prey, therefore 60% odds prereq.
-				if (GC.getGame().getSorenRandNum(100, "Animal Attack")
-					<
-					GC.getHandicapInfo(GC.getGame().getHandicapType()).getAnimalAttackProb())
-				{
-					if (AI_anyAttack(2, 60, 0, false))
-					{
-						return;
-					}
-				}
+				return;
 			}
 		}
 	}
@@ -25178,7 +25174,7 @@ int CvUnitAI::AI_pillageValue(const CvPlot* pPlot, int iBonusValueThreshold) con
 			}
 		}
 	}
-	const ImprovementTypes eImprovement = pPlot->getRevealedImprovementType(getTeam(), false);
+	const ImprovementTypes eImprovement = pPlot->getRevealedImprovementType(getTeam());
 
 	if (eImprovement != NO_IMPROVEMENT)
 	{
@@ -25205,38 +25201,53 @@ int CvUnitAI::AI_pillageValue(const CvPlot* pPlot, int iBonusValueThreshold) con
 int CvUnitAI::AI_nukeValue(const CvCity* pCity) const
 {
 	PROFILE_FUNC();
-	FAssertMsg(pCity != NULL, "City is not assigned a valid value");
+	FAssertMsg(pCity, "City is not assigned a valid value");
 
-	for (int iI = 0; iI < MAX_TEAMS; iI++)
+	const CvPlot* nukePlot = pCity->plot();
+
+	const int iNukeRange = nukeRange();
+
+	for (int iI = 0; iI < MAX_PC_TEAMS; iI++)
 	{
-		if (GET_TEAM((TeamTypes)iI).isAlive() && !isEnemy((TeamTypes)iI) && isNukeVictim(pCity->plot(), (TeamTypes)iI))
+		if (isNukeVictim(nukePlot, (TeamTypes)iI, iNukeRange) && !isEnemy((TeamTypes)iI))
 		{
 			return 0; // Don't start wars with neutrals
 		}
 	}
 
-	int iValue = 1;
+	int iValue = (
+			std::max(1, pCity->getPopulation() - 9)
+		+	GC.getGame().getSorenRandNum(1 + pCity->getPopulation(), "AI Nuke City Value")
+		+	pCity->getPopulation() * (100 + pCity->calculateCulturePercent(pCity->getOwner())) / 100
+		-	GET_PLAYER(getOwner()).AI_getAttitudeVal(pCity->getOwner()) / 3
+	);
 
-	iValue += GC.getGame().getSorenRandNum((pCity->getPopulation() + 1), "AI Nuke City Value");
-	iValue += std::max(0, pCity->getPopulation() - 10);
+	bool bHitOwnLand = false;
 
-	iValue += ((pCity->getPopulation() * (100 + pCity->calculateCulturePercent(pCity->getOwner()))) / 100);
-
-	iValue += -(GET_PLAYER(getOwner()).AI_getAttitudeVal(pCity->getOwner()) / 3);
-
-	foreach_(const CvPlot * pLoopPlot, pCity->plot()->rect(nukeRange(), nukeRange()))
+	foreach_(const CvPlot * plotX, nukePlot->rect(iNukeRange, iNukeRange))
 	{
-		if (pLoopPlot->getImprovementType() != NO_IMPROVEMENT)
+		if (plotX->getTeam() != NO_TEAM)
 		{
-			iValue++;
-		}
-		if (pLoopPlot->getNonObsoleteBonusType(getTeam()) != NO_BONUS)
-		{
-			iValue++;
+			if (plotX->getTeam() == getTeam())
+			{
+				iValue--;
+				bHitOwnLand = true;
+			}
+			else
+			{
+				if (plotX->getImprovementType() != NO_IMPROVEMENT)
+				{
+					iValue++;
+				}
+				if (plotX->getNonObsoleteBonusType(getTeam()) != NO_BONUS)
+				{
+					iValue++;
+				}
+			}
 		}
 	}
 
-	if (!(pCity->isEverOwned(getOwner())))
+	if (!pCity->isEverOwned(getOwner()))
 	{
 		iValue *= 3;
 		iValue /= 2;
@@ -25247,15 +25258,19 @@ int CvUnitAI::AI_nukeValue(const CvCity* pCity) const
 		iValue *= 2;
 	}
 
-	if (pCity->plot()->isVisible(getTeam(), false))
+	if (nukePlot->isVisible(getTeam(), false))
 	{
-		iValue += 2 * pCity->plot()->getNumVisiblePotentialEnemyDefenders(this);
+		iValue += 2 * nukePlot->getNumVisiblePotentialEnemyDefenders(this);
 	}
 	else
 	{
 		iValue += 6;
 	}
 
+	if (bHitOwnLand)
+	{
+		iValue /= 2;
+	}
 	return iValue;
 }
 
@@ -26077,7 +26092,7 @@ bool CvUnitAI::AI_RbombardPlot(int iRange, int iBonusValueThreshold)
 			int iValue = 0;
 			if (iBonusValueThreshold > 0)
 			{
-				const ImprovementTypes eImprovement = plotX->getRevealedImprovementType(getTeam(), false);
+				const ImprovementTypes eImprovement = plotX->getRevealedImprovementType(getTeam());
 
 				if (eImprovement != NO_IMPROVEMENT)
 				{
