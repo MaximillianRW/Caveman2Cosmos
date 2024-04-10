@@ -20729,6 +20729,12 @@ void CvPlayer::setTriggerFired(const EventTriggeredData& kTriggeredData, bool bO
 EventTriggeredData* CvPlayer::initTriggeredData(EventTriggerTypes eEventTrigger, bool bFire, int iCityId, int iPlotX, int iPlotY, PlayerTypes eOtherPlayer, int iOtherPlayerCityId, ReligionTypes eReligion, CorporationTypes eCorporation, int iUnitId, BuildingTypes eBuilding)
 {
 	PROFILE_EXTRA_FUNC();
+
+	if (NO_EVENTTRIGGER == eEventTrigger)
+	{
+		FErrorMsg("unexpected!");
+		return NULL;
+	}
 	const CvEventTriggerInfo& kTrigger = GC.getEventTriggerInfo(eEventTrigger);
 
 	CvCity* pCity = getCity(iCityId);
@@ -20741,7 +20747,7 @@ EventTriggeredData* CvPlayer::initTriggeredData(EventTriggerTypes eEventTrigger,
 	CvUnit* pUnit = getUnit(iUnitId);
 
 	std::vector<CvPlot*> apPlots;
-	bool bPickPlot = ::isPlotEventTrigger(eEventTrigger);
+	bool bPickPlot = kTrigger.getNumPlotsRequired() > 0;
 
 	if (kTrigger.getNumOnGameOptions() > 0)
 	{
@@ -20770,24 +20776,21 @@ EventTriggeredData* CvPlayer::initTriggeredData(EventTriggerTypes eEventTrigger,
 		if (!pCity)
 		{
 			pCity = pickTriggerCity(eEventTrigger);
-		}
 
-		if (pCity)
-		{
-			if (bPickPlot)
+			if (!pCity)
 			{
-				foreach_(CvPlot* pLoopPlot, pCity->plots(NUM_CITY_PLOTS, true))
-				{
-					if (pLoopPlot->canTrigger(eEventTrigger, getID()))
-					{
-						apPlots.push_back(pLoopPlot);
-					}
-				}
+				return NULL;
 			}
 		}
-		else
+		if (bPickPlot)
 		{
-			return NULL;
+			foreach_(CvPlot* pLoopPlot, pCity->plots(NUM_CITY_PLOTS, true))
+			{
+				if (pLoopPlot->canTrigger(eEventTrigger, getID()))
+				{
+					apPlots.push_back(pLoopPlot);
+				}
+			}
 		}
 	}
 	else
@@ -20908,6 +20911,56 @@ EventTriggeredData* CvPlayer::initTriggeredData(EventTriggerTypes eEventTrigger,
 		}
 	}
 
+	if (!pPlot)
+	{
+		if (!apPlots.empty())
+		{
+			if (static_cast<int>(apPlots.size()) < kTrigger.getNumPlotsRequired())
+			{
+				return NULL;
+			}
+			pPlot = apPlots[GC.getGame().getSorenRandNum(apPlots.size(), "Event pick plot")];
+
+			if (!pCity)
+			{
+				pCity = GC.getMap().findCity(pPlot->getX(), pPlot->getY(), getID(), NO_TEAM, false);
+			}
+		}
+		else
+		{
+			if (bPickPlot)
+			{
+				return NULL;
+			}
+
+			if (pCity)
+			{
+				pPlot = pCity->plot();
+			}
+		}
+	}
+
+	if (!pUnit && kTrigger.getNumUnits() > 0)
+	{
+		pUnit = pickTriggerUnit(eEventTrigger, pPlot, kTrigger.isUnitsOnPlot());
+
+		if (!pUnit)
+		{
+			return NULL;
+		}
+	}
+
+
+	if (!pPlot && pUnit)
+	{
+		pPlot = pUnit->plot();
+	}
+
+	if (!pPlot && (pCity || pUnit))
+	{
+		return NULL;
+	}
+
 	if (kTrigger.isPickReligion())
 	{
 		if (NO_RELIGION == eReligion)
@@ -20967,32 +21020,6 @@ EventTriggeredData* CvPlayer::initTriggeredData(EventTriggerTypes eEventTrigger,
 		}
 	}
 
-	if (!pPlot)
-	{
-		if (!apPlots.empty())
-		{
-			int iChosen = GC.getGame().getSorenRandNum(apPlots.size(), "Event pick plot");
-			pPlot = apPlots[iChosen];
-
-			if (!pCity)
-			{
-				pCity = GC.getMap().findCity(pPlot->getX(), pPlot->getY(), getID(), NO_TEAM, false);
-			}
-		}
-		else
-		{
-			if (bPickPlot)
-			{
-				return NULL;
-			}
-
-			if (pCity)
-			{
-				pPlot = pCity->plot();
-			}
-		}
-	}
-
 	if (kTrigger.getNumBuildings() > 0)
 	{
 		if (pCity && NO_BUILDING == eBuilding)
@@ -21013,26 +21040,6 @@ EventTriggeredData* CvPlayer::initTriggeredData(EventTriggerTypes eEventTrigger,
 			}
 			eBuilding = aeBuildings[GC.getGame().getSorenRandNum(aeBuildings.size(), "Event pick building")];
 		}
-	}
-
-	if (!pUnit)
-	{
-		pUnit = pickTriggerUnit(eEventTrigger, pPlot, bPickPlot);
-	}
-
-	if (!pUnit && kTrigger.getNumUnits() > 0)
-	{
-		return NULL;
-	}
-
-	if (!pPlot && pUnit)
-	{
-		pPlot = pUnit->plot();
-	}
-
-	if (!pPlot && bPickPlot)
-	{
-		return NULL;
 	}
 
 	if (kTrigger.getNumUnitsGlobal() > 0)
@@ -21118,41 +21125,32 @@ EventTriggeredData* CvPlayer::initTriggeredData(EventTriggerTypes eEventTrigger,
 				}
 			}
 
-			if (!aePlayers.empty())
-			{
-				int iChosen = GC.getGame().getSorenRandNum(aePlayers.size(), "Event pick player");
-				eOtherPlayer = aePlayers[iChosen];
-				pOtherPlayerCity = apCities[iChosen];
-			}
-			else
+			if (aePlayers.empty())
 			{
 				return NULL;
 			}
+			const int iChosen = GC.getGame().getSorenRandNum(aePlayers.size(), "Event pick player");
+			eOtherPlayer = aePlayers[iChosen];
+			pOtherPlayerCity = apCities[iChosen];
 		}
 	}
 
 	EventTriggeredData* pTriggerData = addEventTriggered();
 
-	if (NO_EVENTTRIGGER != eEventTrigger)
-	{
-		pTriggerData->m_eTrigger = eEventTrigger;
-		pTriggerData->m_ePlayer = getID();
-		pTriggerData->m_iTurn = GC.getGame().getGameTurn();
-		pTriggerData->m_iCityId = pCity ? pCity->getID() : -1;
-		pTriggerData->m_iPlotX = pPlot ? pPlot->getX() : INVALID_PLOT_COORD;
-		pTriggerData->m_iPlotY = pPlot ? pPlot->getY() : INVALID_PLOT_COORD;
-		pTriggerData->m_eOtherPlayer = eOtherPlayer;
-		pTriggerData->m_iOtherPlayerCityId = pOtherPlayerCity ? pOtherPlayerCity->getID() : -1;
-		pTriggerData->m_eReligion = eReligion;
-		pTriggerData->m_eCorporation = eCorporation;
-		pTriggerData->m_iUnitId = pUnit ? pUnit->getID() : -1;
-		pTriggerData->m_eBuilding = eBuilding;
-		pTriggerData->m_bExpired = false;
-	}
-	else
-	{
-		return NULL;
-	}
+	pTriggerData->m_eTrigger = eEventTrigger;
+	pTriggerData->m_ePlayer = getID();
+	pTriggerData->m_iTurn = GC.getGame().getGameTurn();
+	pTriggerData->m_iCityId = pCity ? pCity->getID() : -1;
+	pTriggerData->m_iPlotX = pPlot ? pPlot->getX() : INVALID_PLOT_COORD;
+	pTriggerData->m_iPlotY = pPlot ? pPlot->getY() : INVALID_PLOT_COORD;
+	pTriggerData->m_eOtherPlayer = eOtherPlayer;
+	pTriggerData->m_iOtherPlayerCityId = pOtherPlayerCity ? pOtherPlayerCity->getID() : -1;
+	pTriggerData->m_eReligion = eReligion;
+	pTriggerData->m_eCorporation = eCorporation;
+	pTriggerData->m_iUnitId = pUnit ? pUnit->getID() : -1;
+	pTriggerData->m_eBuilding = eBuilding;
+	pTriggerData->m_bExpired = false;
+
 
 	if (!CvString(kTrigger.getPythonCanDo()).empty())
 	{
@@ -21367,7 +21365,7 @@ bool CvPlayer::canDoEvent(EventTypes eEvent, const EventTriggeredData& kTriggere
 		}
 	}
 
-	if (kTriggeredData.m_eTrigger > NO_EVENTTRIGGER && ::isPlotEventTrigger(kTriggeredData.m_eTrigger))
+	if (kTriggeredData.m_iPlotX > -1 && kTriggeredData.m_iPlotY > -1)
 	{
 		const CvPlot* pPlot = GC.getMap().plot(kTriggeredData.m_iPlotX, kTriggeredData.m_iPlotY);
 		if (pPlot && !pPlot->canApplyEvent(eEvent))
@@ -21714,7 +21712,7 @@ void CvPlayer::applyEvent(EventTypes eEvent, int iEventTriggeredId, bool bUpdate
 		}
 
 		CvPlot* pPlot = GC.getMap().plot(pTriggeredData->m_iPlotX, pTriggeredData->m_iPlotY);
-		if (pPlot && pTriggeredData->m_eTrigger > NO_EVENTTRIGGER && ::isPlotEventTrigger(pTriggeredData->m_eTrigger))
+		if (pPlot && pTriggeredData->m_eTrigger > NO_EVENTTRIGGER)
 		{
 			FAssert(pPlot->canApplyEvent(eEvent));
 			pPlot->applyEvent(eEvent);
@@ -22791,7 +22789,7 @@ bool CvPlayer::canTrigger(EventTriggerTypes eTrigger, PlayerTypes ePlayer, Relig
 CvCity* CvPlayer::pickTriggerCity(EventTriggerTypes eTrigger) const
 {
 	PROFILE_EXTRA_FUNC();
-	CvCity* pCity = NULL;
+
 	std::vector<CvCity*> apCities;
 	int iBestValue = MIN_INT;
 
@@ -22813,22 +22811,21 @@ CvCity* CvPlayer::pickTriggerCity(EventTriggerTypes eTrigger) const
 
 	if (!apCities.empty())
 	{
-		int iChosen = GC.getGame().getSorenRandNum(apCities.size(), "Event pick city");
-		pCity = apCities[iChosen];
+		return apCities[GC.getGame().getSorenRandNum(apCities.size(), "Event pick city")];
 	}
-
-	return pCity;
+	return NULL;
 }
 
-CvUnit* CvPlayer::pickTriggerUnit(EventTriggerTypes eTrigger, const CvPlot* pPlot, bool bPickPlot) const
+CvUnit* CvPlayer::pickTriggerUnit(EventTriggerTypes eTrigger, const CvPlot* pPlot, bool bCheckPlot) const
 {
 	PROFILE_EXTRA_FUNC();
-	CvUnit* pUnit = NULL;
+
 	std::vector<CvUnit*> apUnits;
 	int iBestValue = MIN_INT;
+
 	foreach_(CvUnit* pLoopUnit, units())
 	{
-		const int iValue = pLoopUnit->getTriggerValue(eTrigger, pPlot, bPickPlot);
+		const int iValue = pLoopUnit->getTriggerValue(eTrigger, pPlot, bCheckPlot);
 
 		if (iValue >= iBestValue && iValue != MIN_INT)
 		{
@@ -22843,11 +22840,9 @@ CvUnit* CvPlayer::pickTriggerUnit(EventTriggerTypes eTrigger, const CvPlot* pPlo
 
 	if (!apUnits.empty())
 	{
-		int iChosen = GC.getGame().getSorenRandNum(apUnits.size(), "Event pick unit");
-		pUnit = apUnits[iChosen];
+		return apUnits[GC.getGame().getSorenRandNum(apUnits.size(), "Event pick unit")];
 	}
-
-	return pUnit;
+	return NULL;
 }
 
 bool CvPlayer::isEventTriggerPossible(EventTriggerTypes eTrigger, bool bIgnoreActive) const

@@ -10383,6 +10383,10 @@ bool CvUnit::canAddHeritage(const CvPlot* pPlot, const HeritageTypes eType, cons
 
 bool CvUnit::addHeritage(const HeritageTypes eType)
 {
+	if (!canAddHeritage(plot(), eType))
+	{
+		return false;
+	}
 	GET_PLAYER(getOwner()).setHeritage(eType, true);
 
 	if (plot()->isActiveVisible(false))
@@ -15805,6 +15809,7 @@ void CvUnit::setXY(int iX, int iY, bool bGroup, bool bUpdate, bool bShow, bool b
 
 			if (!myPlayer.isAnimal()
 			&& !isBlendIntoCity()
+			&& (!isBarbCoExist() || !pNewPlot->isHominid())
 			&& isEnemy(pNewCity->getTeam())
 			&& (
 				!canCoexistWithTeamOnPlot(pNewCity->getTeam(), *pNewPlot)
@@ -15854,6 +15859,7 @@ void CvUnit::setXY(int iX, int iY, bool bGroup, bool bUpdate, bool bShow, bool b
 				const CvPlayer& pNewPlotOwner = GET_PLAYER(pNewPlot->getOwner());
 
 				if ((isEnemy(pNewPlotOwner.getTeam()) || !pNewPlotOwner.isAlive())
+				&& (!isBarbCoExist() || !pNewPlot->isHominid())
 				&& !canCoexistWithTeamOnPlot(pNewPlotOwner.getTeam(), *pNewPlot) && canFight())
 				{
 					AddDLLMessage(
@@ -25356,14 +25362,11 @@ int CvUnit::getTriggerValue(EventTriggerTypes eTrigger, const CvPlot* pPlot, boo
 		}
 	}
 
-	if (bCheckPlot && plot() != NULL)
+	if (bCheckPlot && plot() && kTrigger.isUnitsOnPlot())
 	{
-		if (kTrigger.isUnitsOnPlot())
+		if (!plot()->canTrigger(eTrigger, getOwner()))
 		{
-			if (!plot()->canTrigger(eTrigger, getOwner()))
-			{
-				return MIN_INT;
-			}
+			return MIN_INT;
 		}
 	}
 
@@ -34643,18 +34646,12 @@ void CvUnit::doMerge()
 		pUnit2->joinGroup(NULL);
 		pUnit3->joinGroup(NULL);
 
-		//CvSelectionGroup* dGroup = pUnit1->getGroup();
-
 		pUnit1->getGroup()->AI_setMissionAI(MISSIONAI_DELIBERATE_KILL, NULL, NULL);
 		pUnit1->kill(true, NO_PLAYER, true);
 		pUnit2->getGroup()->AI_setMissionAI(MISSIONAI_DELIBERATE_KILL, NULL, NULL);
 		pUnit2->kill(true, NO_PLAYER, true);
 		pUnit3->getGroup()->AI_setMissionAI(MISSIONAI_DELIBERATE_KILL, NULL, NULL);
 		pUnit3->kill(true, NO_PLAYER, true);
-		//if ( dGroup->getNumUnits() == 0 )
-		//{
-		//	dGroup->kill();
-		//}
 	}
 }
 
