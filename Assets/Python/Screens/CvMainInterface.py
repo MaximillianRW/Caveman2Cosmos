@@ -8,7 +8,6 @@ import PythonToolTip as pyTT
 import AbandonCityEventManager as ACEM
 import TextUtil
 import RevInstances
-#import ParallelMaps
 # globals
 GC = CyGlobalContext()
 ENGINE = CyEngine()
@@ -1244,7 +1243,7 @@ class CvMainInterface:
 					else:
 						szOutput = TRNSLTR.getText("TXT_KEY_SYSTEM_PLAYER_JOINING", (GC.getPlayer(iFirstBadConnection).getNameKey(), (iFirstBadConnection + 1)))
 			elif CyIF.shouldDisplayWaitingOthers():
-				szOutput = self.szSystemWaiting
+				szOutput = "..."
 			elif CyIF.shouldDisplayEndTurn():
 				szOutput = ReminderEventManager.g_turnReminderTexts
 				if not szOutput:
@@ -1262,6 +1261,7 @@ class CvMainInterface:
 				screen.showEndTurn("EndTurnText")
 			else:
 				screen.hideEndTurn("EndTurnText")
+				screen.hide("WaitingForPlayer")
 			# NJAGC - start
 			if IFT != InterfaceVisibility.INTERFACE_ADVANCED_START:
 				screen.show("EraIndicator0")
@@ -1311,6 +1311,10 @@ class CvMainInterface:
 
 		else:
 			screen.hideEndTurn("EndTurnButton")
+
+	def updateWaitingForPlayer(self, iPlayer):
+		CyGInterfaceScreen("MainInterface", CvScreenEnums.MAIN_INTERFACE).setLabel("WaitingForPlayer", "", self.aFontList[0] + self.szSystemWaiting % str(iPlayer), 1<<2, self.xRes/2, self.yRes - 296, 0, FontTypes.GAME_FONT, WidgetTypes.WIDGET_GENERAL, 0, 0)
+
 
 	# Will redraw the interface
 	def redraw(self):
@@ -6063,6 +6067,9 @@ class CvMainInterface:
 				GAME.doControl(ControlTypes.CONTROL_PREVCITY)
 			else:
 				GAME.doControl(ControlTypes.CONTROL_PREVUNIT)
+
+	def initMinimap(self):
+		CyGInterfaceScreen("MainInterface", CvScreenEnums.MAIN_INTERFACE).initMinimap(self.xMinimap, self.xRes - 3, self.yMinimap, self.yRes - 3, -0.1)
 
 # # # # # # #
 # Pop-Up Callbacks

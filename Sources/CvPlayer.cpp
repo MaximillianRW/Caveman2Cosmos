@@ -11906,7 +11906,7 @@ void CvPlayer::setTurnActiveForPbem(bool bActive)
 	{
 		m_bTurnActive = bActive;
 		GC.getGame().changeNumGameTurnActive(bActive ? 1 : -1);
-		GC.getMap().invalidateIsActivePlayerNoDangerCache();
+		GC.getMap().invalidateActivePlayerPlotCache();
 	}
 }
 
@@ -11919,6 +11919,7 @@ void CvPlayer::setTurnActive(bool bNewValue, bool bDoTurn)
 	if (m_bTurnActive != bNewValue)
 	{
 		m_bTurnActive = bNewValue;
+
 
 		if (bNewValue)
 		{
@@ -12110,6 +12111,10 @@ void CvPlayer::setTurnActive(bool bNewValue, bool bDoTurn)
 				//	...and straight back in
 				GC.getGame().processGreatWall(true);
 			}
+			else if (!GET_PLAYER(GC.getGame().getActivePlayer()).isTurnActive())
+			{
+				Cy::call(PYScreensModule, "updateWaitingForPlayer", Cy::Args() << getID());
+			}
 
 			if (bDoTurn)
 			{
@@ -12229,7 +12234,7 @@ void CvPlayer::setTurnActive(bool bNewValue, bool bDoTurn)
 		gDLL->getInterfaceIFace()->updateCursorType();
 		gDLL->getInterfaceIFace()->setDirty(Score_DIRTY_BIT, true);
 
-		GC.getMap().invalidateIsActivePlayerNoDangerCache();
+		GC.getMap().invalidateActivePlayerPlotCache();
 	}
 }
 

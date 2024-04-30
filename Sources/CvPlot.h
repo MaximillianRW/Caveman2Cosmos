@@ -238,9 +238,11 @@ public:
 	bool isRiver() const;
 	bool isRiverConnection(DirectionTypes eDirection) const;
 
-	CvPlot* getNearestLandPlotInternal(int iDistance) const;
-	int getNearestLandArea() const;
-	CvPlot* getNearestLandPlot() const;
+	int isLandWater(const bool bLand) const;
+	int getDistanceToLandOrCoast(const int iMaxReturn = MAX_INT) const;
+	int setClimateAppropriateWaterTerrain(const int iDistance, ClimateZoneTypes eClimate = NO_CLIMATE_ZONE);
+	bool correctWaterTerrain(int &iLastDistance);
+	void correctWaterTerrains(int iLastDistance, const DirectionTypes dir, const bool bContinue = false);
 
 	int getElevationLevel(const bool bExtra = false) const;
 	int getTerrainElevation() const;
@@ -320,13 +322,42 @@ public:
 	int calculatePathDistanceToPlot( TeamTypes eTeam, CvPlot* pTargetPlot ) const;
 
 	// Plot danger cache
-	bool isActivePlayerNoDangerCache() const;
-	bool isActivePlayerHasDangerCache() const;
-	bool isTeamBorderCache( TeamTypes eTeam ) const;
-	void setIsActivePlayerNoDangerCache( bool bNewValue ) const;
-	void setIsActivePlayerHasDangerCache( bool bNewValue ) const;
-	void setIsTeamBorderCache( TeamTypes eTeam, bool bNewValue ) const;
-	void invalidateIsTeamBorderCache() const;
+	inline int getActivePlayerSafeRangeCache(const bool bTestMoves) const
+	{
+		if (bTestMoves)
+		{
+			return m_iActivePlayerSafeRangeCacheTestMoves;
+		}
+		return m_iActivePlayerSafeRangeCache;
+	}
+	inline void setActivePlayerSafeRangeCache(const int iRange, const bool bTestMoves) const 
+	{
+		if (bTestMoves)
+		{
+			m_iActivePlayerSafeRangeCacheTestMoves = iRange;
+		}
+		else m_iActivePlayerSafeRangeCache = iRange;
+	}
+	inline bool getActivePlayerHasDangerCache(const bool bTestMoves) const
+	{
+		if (bTestMoves)
+		{
+			return m_bActivePlayerHasDangerCacheTestMoves;
+		}
+		return m_bActivePlayerHasDangerCache;
+	}
+	inline void setActivePlayerHasDangerCache(const bool bNewValue, const bool bTestMoves) const
+	{
+		if (bTestMoves)
+		{
+			m_bActivePlayerHasDangerCacheTestMoves = bNewValue;
+		}
+		else m_bActivePlayerHasDangerCache = bNewValue;
+	}
+	inline bool getBorderDangerCache(const TeamTypes eTeam) const { return m_borderDangerCache[eTeam]; }
+	inline void setBorderDangerCache(const TeamTypes eTeam, const bool bNewValue) const { m_borderDangerCache[eTeam] = bNewValue; }
+	void invalidateBorderDangerCache() const;
+	void invalidateActivePlayerPlotCache();
 
 	CvCity* getAdjacentCity(PlayerTypes ePlayer = NO_PLAYER) const;
 	bool changeBuildProgress(BuildTypes eBuild, int iChange, PlayerTypes ePlayer = NO_PLAYER);
@@ -962,9 +993,11 @@ protected:
 	IDInfo m_workingCityOverride;
 
 	// Plot danger cache
-	mutable bool m_bIsActivePlayerHasDangerCache;
-	mutable bool m_bIsActivePlayerNoDangerCache;
-	mutable bool* m_abIsTeamBorderCache;
+	mutable int m_iActivePlayerSafeRangeCache;
+	mutable int m_iActivePlayerSafeRangeCacheTestMoves;
+	mutable bool m_bActivePlayerHasDangerCache;
+	mutable bool m_bActivePlayerHasDangerCacheTestMoves;
+	mutable bool* m_borderDangerCache;
 
 	static	int m_iGlobalCachePathEpoch;
 	mutable int		m_iCachePathEpoch;
