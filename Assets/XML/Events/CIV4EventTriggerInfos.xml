@@ -3527,7 +3527,7 @@
 			</TriggerTexts>
 			<EventArt>Art/Event_Images/CigaretteSmoker.dds</EventArt>
 			<iPercentGamesActive>100</iPercentGamesActive>
-			<iWeight>200</iWeight>
+			<iWeight>0</iWeight>
 			<bProbabilityBuildingMultiply>1</bProbabilityBuildingMultiply>
 			<BuildingsRequired>
 				<Building>BUILDING_THEATRE</Building>
@@ -5127,7 +5127,7 @@
 			</TriggerTexts>
 			<EventArt>Art/Event_Images/IndustrialFire.dds</EventArt>
 			<iPercentGamesActive>100</iPercentGamesActive>
-			<iWeight>200</iWeight>
+			<iWeight>0</iWeight>
 			<bProbabilityBuildingMultiply>1</bProbabilityBuildingMultiply>
 			<BuildingsRequired>
 				<Building>BUILDING_FACTORY</Building>
@@ -10808,7 +10808,7 @@
 			</TriggerTexts>
 			<EventArt>Art/Event_Images/cityfire1.dds</EventArt>
 			<iPercentGamesActive>100</iPercentGamesActive>
-			<iWeight>200</iWeight>
+			<iWeight>0</iWeight>
 			<iNumPlotsRequired>1</iNumPlotsRequired>
 			<Events>
 				<Event>EVENT_CITYFIRE_1</Event>
@@ -10835,7 +10835,7 @@
 			</TriggerTexts>
 			<EventArt>Art/Event_Images/cityfire2.dds</EventArt>
 			<iPercentGamesActive>100</iPercentGamesActive>
-			<iWeight>200</iWeight>
+			<iWeight>0</iWeight>
 			<iNumPlotsRequired>1</iNumPlotsRequired>
 			<Events>
 				<Event>EVENT_CITYFIRE_2</Event>
@@ -10863,7 +10863,7 @@
 			</TriggerTexts>
 			<EventArt>Art/Event_Images/cityfire3.dds</EventArt>
 			<iPercentGamesActive>100</iPercentGamesActive>
-			<iWeight>200</iWeight>
+			<iWeight>0</iWeight>
 			<iNumPlotsRequired>1</iNumPlotsRequired>
 			<Events>
 				<Event>EVENT_CITYFIRE_4</Event>
@@ -10892,7 +10892,7 @@
 			</TriggerTexts>
 			<EventArt>Art/Event_Images/cityfire4.dds</EventArt>
 			<iPercentGamesActive>100</iPercentGamesActive>
-			<iWeight>150</iWeight>
+			<iWeight>0</iWeight>
 			<iNumPlotsRequired>1</iNumPlotsRequired>
 			<Events>
 				<Event>EVENT_CITYFIRE_7</Event>
@@ -10921,7 +10921,7 @@
 			</TriggerTexts>
 			<EventArt>Art/Event_Images/cityfire5.dds</EventArt>
 			<iPercentGamesActive>100</iPercentGamesActive>
-			<iWeight>100</iWeight>
+			<iWeight>0</iWeight>
 			<iNumPlotsRequired>1</iNumPlotsRequired>
 			<Events>
 				<Event>EVENT_CITYFIRE_10</Event>
