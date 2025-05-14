@@ -94,7 +94,10 @@
 			<MapCategoryTypes>
 				<MapCategoryType>MAPCATEGORY_EARTH</MapCategoryType>
 			</MapCategoryTypes>
-			<VicinityBonus>BONUS_SULPHUR</VicinityBonus>
+			<RawVicinityBonus>BONUS_SULPHUR</RawVicinityBonus>
+			<PrereqBonuses>
+				<Bonus>BONUS_SULPHUR</Bonus>
+			</PrereqBonuses>
 			<bNukeImmune>1</bNukeImmune>
 			<ExtraFreeBonuses>
 				<ExtraFreeBonus>

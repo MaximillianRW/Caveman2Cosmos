@@ -13,7 +13,10 @@
 			<MapCategoryTypes>
 				<MapCategoryType>MAPCATEGORY_EARTH</MapCategoryType>
 			</MapCategoryTypes>
-			<VicinityBonus>BONUS_URANIUM</VicinityBonus>
+			<RawVicinityBonus>BONUS_URANIUM</RawVicinityBonus>
+			<PrereqBonuses>
+				<Bonus>BONUS_URANIUM</Bonus>
+			</PrereqBonuses>
 			<ExtraFreeBonuses>
 				<ExtraFreeBonus>
 					<FreeBonus>BONUS_ATOMPUNK</FreeBonus>

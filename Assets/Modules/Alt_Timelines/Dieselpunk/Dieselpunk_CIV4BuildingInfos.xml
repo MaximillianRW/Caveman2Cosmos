@@ -59,7 +59,10 @@
 			<MapCategoryTypes>
 				<MapCategoryType>MAPCATEGORY_EARTH</MapCategoryType>
 			</MapCategoryTypes>
-			<VicinityBonus>BONUS_OIL</VicinityBonus>
+			<RawVicinityBonus>BONUS_OIL</RawVicinityBonus>
+			<PrereqBonuses>
+				<Bonus>BONUS_OIL</Bonus>
+			</PrereqBonuses>
 			<ExtraFreeBonuses>
 				<ExtraFreeBonus>
 					<FreeBonus>BONUS_DIESELPUNK</FreeBonus>

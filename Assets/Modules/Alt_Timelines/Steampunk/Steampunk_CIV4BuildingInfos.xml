@@ -344,7 +344,10 @@
 			<MapCategoryTypes>
 				<MapCategoryType>MAPCATEGORY_EARTH</MapCategoryType>
 			</MapCategoryTypes>
-			<VicinityBonus>BONUS_COAL</VicinityBonus>
+			<RawVicinityBonus>BONUS_COAL</RawVicinityBonus>
+			<PrereqBonuses>
+				<Bonus>BONUS_COAL</Bonus>
+			</PrereqBonuses>
 			<ExtraFreeBonuses>
 				<ExtraFreeBonus>
 					<FreeBonus>BONUS_STEAMPUNK</FreeBonus>
